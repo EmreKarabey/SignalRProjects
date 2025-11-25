@@ -1,0 +1,24 @@
+# *****************************************************************
+# 1. Proje Çıktıları ve Önbellek (Merge Çakışmasının Ana Kaynağı)
+# *****************************************************************
+# Bu klasörler derleme sırasında otomatik oluşur ve takip edilmemelidir.
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio'nun gizli önbellek klasörü (IntelliSense/Arama verilerini tutar)
+.vs/
+
+# *****************************************************************
+# 2. Visual Studio ve Kullanıcı Ayarları (Yerel Kilitlemeler)
+# *****************************************************************
+# Kullanıcıya özel ayarlar (VS, VS Code, vb.)
+*.user
+*.suo
+*.sln.docstates
+
+# VS Code'un ayar klasörleri
+.vscode/
+
+# NuGet paketleri ve cache dosyaları
+*.nupkg
+packages/
