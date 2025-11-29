@@ -1,0 +1,123 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Genel Sayfa Düzeni */
+        body {
+            background-color: #f4f6f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Kart Tasarımı */
+        .error-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* İkon Alanı */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: #ffebee; /* Açık Kırmızı */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+
+            .icon-box svg {
+                width: 40px;
+                height: 40px;
+                stroke: #d32f2f; /* Koyu Kırmızı */
+            }
+
+        /* Başlık ve Metin */
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* Butonlar */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #b71c1c;
+            }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+            .btn-secondary:hover {
+                background-color: #d6d6d6;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="error-card">
+        <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+
+        <h1>İşlem Başarısız Oldu</h1>
+        <p>Üzgünüz, isteğinizi gerçekleşemedi.</p>
+
+        <div class="btn-group">
+            <a href="/Products/ProductsList" class="btn btn-secondary">Ana Sayfa</a>
+            <button onclick="location.reload()" class="btn btn-primary">Tekrar Dene</button>
+        </div>
+    </div>
+
+</body>
+</html>

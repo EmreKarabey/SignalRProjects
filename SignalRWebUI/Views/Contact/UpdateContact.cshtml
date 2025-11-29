@@ -1,0 +1,41 @@
+﻿@model UpdateContact
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-valide" method="post">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">İletişim Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="ContactID" placeholder="@Model.ContactID">
+				<div class="form-group">
+					<label for="text">Yer</label>
+					<input type="text" class="form-control" asp-for="Location" placeholder="@Model.Location">
+				</div>
+				<div class="form-group">
+					<label for="text">Telefon</label>
+					<input type="text" class="form-control" asp-for="Phone" placeholder="@Model.Phone">
+				</div>
+				<div class="form-group">
+					<label for="text">Mail</label>
+					<input type="email" class="form-control" asp-for="Mail" placeholder="@Model.Mail">
+				</div>
+				<div class="form-group">
+					<label for="text">Footer Açıklama</label>
+					<input type="text" class="form-control" asp-for="FooterDescription" placeholder="@Model.FooterDescription">
+				</div>
+
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+				<a class="btn btn-danger" href="/Contact/ContactList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>
+

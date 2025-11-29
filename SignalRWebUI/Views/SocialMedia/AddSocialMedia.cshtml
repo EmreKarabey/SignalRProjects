@@ -1,0 +1,36 @@
+﻿@model AddSocialMedia
+@{
+    ViewData["Title"] = "AddSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-valide" method="post">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Hesap Ekleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				
+				<div class="form-group">
+					<label for="text">Başlık</label>
+					<input type="text" class="form-control" asp-for="Title" placeholder="Başlık">
+				</div>
+				<div class="form-group">
+					<label for="text">Url</label>
+					<input type="text" class="form-control" asp-for="Url" placeholder="Url">
+				</div>
+				<div class="form-group">
+					<label for="text">İkon</label>
+					<input type="text" class="form-control" asp-for="Icon" placeholder="İkon">
+				</div>
+
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Ekle</button>
+				<a class="btn btn-danger" href="/SocialMedia/SocialMediaList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>

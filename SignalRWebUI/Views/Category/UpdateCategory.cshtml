@@ -1,0 +1,35 @@
+﻿@model UpdateCategory
+@{
+	ViewData["Title"] = "UpdateCategory";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-valide" method="post">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Kategori Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="CategoryID" placeholder="@Model.CategoryID">
+				<div class="form-group">
+					<label for="text">Kategori Adı</label>
+					<input type="text" class="form-control" asp-for="CategoryName" placeholder="@Model.CategoryName">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Durum</label>
+					<select asp-for="CategoryStatus" class="form-control">
+						<option value="true">Aktif</option>
+						<option value="false">Pasif</option>
+					</select>
+				</div>
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+				<a class="btn btn-danger" href="/Category/CategoryList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>

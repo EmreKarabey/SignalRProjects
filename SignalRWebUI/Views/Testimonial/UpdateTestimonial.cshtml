@@ -1,0 +1,49 @@
+﻿@model UpdateTestimonial
+@{
+	ViewData["Title"] = "UpdateTestimonial";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form class="form-valide" method="post" enctype="multipart/form-data">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Yorum Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="TestimonialID" placeholder="@Model.TestimonialID">
+				<div class="form-group">
+					<label for="text">Ad-Soyad</label>
+					<input type="text" class="form-control" asp-for="Name" placeholder="@Model.Name">
+				</div>
+				<div class="form-group">
+					<label for="text">Başlık</label>
+					<input type="text" class="form-control" asp-for="Title" placeholder="@Model.Title">
+				</div>
+				<div class="form-group">
+					<label for="text">Yorum</label>
+					<textarea type="text" class="form-control" asp-for="Comment" placeholder="@Model.Comment"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Durum</label>
+					<select asp-for="Status" class="form-control">
+						<option value="true">Yayında</option>
+						<option value="false">Yayında Değil</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlFile1">Resim Yükle</label>
+					<input type="file" asp-for="Image" class="form-control-file" placeholder="@Model.Image">
+				</div>
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+				<a class="btn btn-danger" href="/Testimonial/TestimonialList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>

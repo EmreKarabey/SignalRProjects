@@ -1,0 +1,41 @@
+﻿
+@model AddAbout
+@{
+	ViewData["Title"] = "AddAbout";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int i = 1;
+}
+
+<form class="form-valide" method="post" enctype="multipart/form-data">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Hakkımda Ekleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<div class="form-group">
+					<label for="text">Başlık</label>
+					<input type="text" class="form-control" asp-for="Title" placeholder="Kategori Adı">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Açıklama</label>
+					<input type="text" class="form-control" asp-for="Description" placeholder="Kategori Adı">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Resim</label>
+					<input type="file" class="form-control" asp-for="Image">
+				</div>
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Ekle</button>
+				<a href="/About/UpdateAbout/@i" class="btn btn-primary">Güncelle</a>
+				<a class="btn btn-danger" href="#">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>
+
+

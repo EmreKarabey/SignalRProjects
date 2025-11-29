@@ -1,0 +1,46 @@
+﻿@model UpdateDiscount
+@{
+    ViewData["Title"] = "UpdateDiscount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form class="form-valide" method="post" enctype="multipart/form-data">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">İndirim Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="DiscountID" placeholder="@Model.DiscountID">
+
+				<div class="form-group">
+					<label for="text">Başlık</label>
+					<input type="text" class="form-control" asp-for="Title" placeholder="@Model.Title">
+				</div>
+
+				<div class="form-group">
+					<label for="text">İndirim Oranı</label>
+					<input type="text" class="form-control" asp-for="Amount" placeholder="@Model.Amount">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Açıklama</label>
+					<input type="text" class="form-control" asp-for="Description" placeholder="@Model.Description">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Resim</label>
+					<input type="file" class="form-control" asp-for="Image">
+				</div>
+
+
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+				<a class="btn btn-danger" href="/Discount/DiscountList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,63 @@
+﻿@model UpdateProducts
+@{
+	ViewData["Title"] = "UpdateProducts";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-valide" method="post" enctype="multipart/form-data">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Ürün Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="ProductsID" placeholder="@Model.ProductsID">
+				<div class="form-group">
+					<label for="text">Ürün Adı</label>
+					<input type="text" class="form-control" asp-for="ProductsName" placeholder="@Model.ProductsName">
+				</div>
+				<div class="form-group">
+					<label for="text">Açıklama</label>
+					<input type="text" class="form-control" asp-for="Description" placeholder="@Model.Description">
+				</div>
+				<div class="form-group">
+					<label for="text">Fiyat</label>
+					<input type="text" class="form-control" asp-for="Price" placeholder="@Model.Price ₺">
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Kategori</label>
+					<select asp-for="CategoryID" class="form-control">
+						<option value="@Model.CategoryID">@Model.Category.CategoryName</option>
+						@await Component.InvokeAsync("_CategoryViewComponents")
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Durum</label>
+					<select asp-for="ProductStatus" class="form-control">
+						@if (Model.ProductStatus == true)
+						{
+							<option value="1">Stokta Mevcut</option>
+							<option value="0">Stokta Değil</option>
+						}
+						else
+						{
+							<option value="0">Stokta Değil</option>
+							<option value="1">Stokta Mevcut</option>
+						}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlFile1">Resim Yükle</label>
+					<input type="file" class="form-control-file" placeholder="@Model.ImageURL">
+				</div>
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+				<a class="btn btn-danger" href="/Products/ProductsList">Geri</a>
+			</div>
+		</div>
+	</div>
+</form>
+

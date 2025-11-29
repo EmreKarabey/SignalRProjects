@@ -1,0 +1,28 @@
+﻿@{
+	ViewData["Title"] = "_AdminLayout";
+}
+
+<!DOCTYPE html>
+<html>
+	@await Html.PartialAsync("/Views/AdminPartialView/_HeadPartial.cshtml")
+<body>
+	<div class="wrapper">
+
+		<div class="main-header">
+
+			@await Html.PartialAsync("/Views/AdminPartialView/_HeaderPartial.cshtml")
+
+			@await Html.PartialAsync("/Views/AdminPartialView/_NavbarPartial.cshtml")
+		</div>
+		@await Html.PartialAsync("/Views/AdminPartialView/_SidebarPartial.cshtml")
+		<div class="main-panel">
+			<div class="content">
+				@RenderBody()
+			</div>
+			@await Html.PartialAsync("/Views/AdminPartialView/_FooterPartial.cshtml")
+		</div>
+	</div>
+</body>
+@await Html.PartialAsync("/Views/AdminPartialView/_ScriptPartial.cshtml")
+</html>
+

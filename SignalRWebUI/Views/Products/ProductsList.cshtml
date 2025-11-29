@@ -1,0 +1,59 @@
+﻿@model List<ProductsListDto>
+@{
+	ViewData["Title"] = "CategoryList";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="card-title">Ürün Tablosu</div>
+		</div>
+		<div class="card-body">
+			<table class="table mt-3">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Ürün Adı</th>
+						<th scope="col">Açıklama</th>
+						<th scope="col">Fiyat</th>
+						<th scope="col">Kategori</th>
+						<th scope="col">Durum</th>
+						<th scope="col">Sil</th>
+						<th scope="col">Güncelle</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.ProductsID</td>
+							<td>@item.ProductsName</td>
+							<td>@item.Description</td>
+							<td>@item.Price</td>
+							<td>@item.Category.CategoryName</td>
+							@if (item.ProductStatus == true)
+							{
+								<td>
+									<span class="badge bg-success">Stokta Mevcut</span>
+								</td>
+							}
+							else
+							{
+								<td>
+									<span class="badge bg-danger">Stokta Değil</span>
+								</td>
+							}
+							<td><a href="/Products/DeleteProduct/@item.ProductsID" class="btn btn-outline-danger">Sil</a></td>
+							<td><a href="/Products/UpdateProducts/@item.ProductsID" class="btn btn-outline-primary">Güncelle</a></td>
+
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+			<a href="/Products/AddProduct" class="btn btn-outline-warning">Ürün Ekle</a>
+		</div>
+	</div>
+</div>
