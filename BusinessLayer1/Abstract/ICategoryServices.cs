@@ -7,7 +7,10 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICategoryServices:IGenericServices<Category>
+    public interface ICategoryServices : IGenericServices<Category>
     {
+        public int CategoryCount();
+        public int ActiveCategory();
+        public int PassiveCategory();
     }
 }

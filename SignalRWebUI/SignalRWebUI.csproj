@@ -29,6 +29,7 @@
     <ProjectReference Include="..\BusinessLayer1\BusinessLayer.csproj" />
     <ProjectReference Include="..\DataAccessLayer1\DataAccessLayer.csproj" />
     <ProjectReference Include="..\EntityLayer1\EntityLayer.csproj" />
+    <ProjectReference Include="..\SignalRApiProject\SignalRApiProject.csproj" />
   </ItemGroup>
 
 </Project>

@@ -123,6 +123,45 @@ namespace SignalRApiProject.Controllers
             return Ok("Başarılı Bir Şekilde Güncellendi");
         }
 
+        [HttpGet("ProductsCount")]
+        public IActionResult ProductsCount()
+        {
+            var entity = _productsServices.ProductsCount();
+
+            return Ok(entity);
+        }
+
+        [HttpGet("CategoryProductCount")]
+        public IActionResult CategoryProductCount(string Name)
+        {
+            var entity = _productsServices.CategoryNameProductsCount(Name);
+
+            return Ok(entity);
+        }
+
+        [HttpGet("AverageCategoriesCount")]
+        public IActionResult AverageCategoriesCount(string CategoryNAME)
+        {
+            var entity = _productsServices.AverageCategoriesCount(CategoryNAME);
+
+            return Ok(entity);
+        }
+
+        [HttpGet("LowPriceProduct")]
+        public IActionResult LowPriceProduct()
+        {
+            var entity = _productsServices.LowPriceProduct();
+
+            return Ok(entity);
+        }
+
+        [HttpGet("HighPriceProduct")]
+        public IActionResult HighPriceProduct()
+        {
+            var entity = _productsServices.HighPriceProduct();
+
+            return Ok(entity);
+        }
         public record AddProductsDto
         {
             [Required(ErrorMessage = "Lütfen Ürün Adı Girin")] public string? ProductsName { get; set; }

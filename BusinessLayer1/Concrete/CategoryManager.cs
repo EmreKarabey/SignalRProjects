@@ -17,9 +17,22 @@ namespace BusinessLayer.Concrete
         {
             _category = category;
         }
+
+        public int ActiveCategory()
+        {
+            var entity = _category.ActiveCategory();
+
+            return entity;
+        }
+
         public void Add(Category t)
         {
             _category.Add(t);
+        }
+
+        public int CategoryCount()
+        {
+            return _category.CategoryCount();
         }
 
         public void Delete(Category t)
@@ -35,6 +48,13 @@ namespace BusinessLayer.Concrete
         public List<Category> GetList()
         {
             return _category.GetList();
+        }
+
+        public int PassiveCategory()
+        {
+            var entity = _category.PassiveCategory();
+
+            return entity;
         }
 
         public void Update(Category t)

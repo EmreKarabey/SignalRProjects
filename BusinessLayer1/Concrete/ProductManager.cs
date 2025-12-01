@@ -22,6 +22,18 @@ namespace BusinessLayer.Concrete
             _products.Add(t);
         }
 
+        public decimal AverageCategoriesCount(string CategoryName)
+        {
+            return _products.AverageCategoriesCount(CategoryName);
+        }
+
+        public int CategoryNameProductsCount(string CategoryName)
+        {
+            var entity = _products.CategoryNameProductsCount(CategoryName);
+
+            return entity;
+        }
+
         public void Delete(Products t)
         {
             _products.Delete(t);
@@ -39,9 +51,26 @@ namespace BusinessLayer.Concrete
             return _products.GetList();
         }
 
+        public string HighPriceProduct()
+        {
+            return _products.HighPriceProduct();
+        }
+
         public Products IncludeGetById(int id)
         {
            return _products.IncludeGetById(id);
+        }
+
+        public string LowPriceProduct()
+        {
+            return _products.LowPriceProduct();
+        }
+
+        public int ProductsCount()
+        {
+            var entity = _products.ProductsCount();
+
+            return entity;
         }
 
         public void Update(Products t)

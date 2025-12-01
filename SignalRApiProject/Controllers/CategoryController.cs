@@ -68,6 +68,27 @@ namespace SignalRApiProject.Controllers
             return Ok("Başarılı Bir Şekilde Güncellenildi");
         }
 
+        [HttpGet("CategoryCount")]
+        public IActionResult CategoryCount()
+        {
+            var entity = _categoryServices.CategoryCount();
+            return Ok(entity);
+        }
+
+        [HttpGet("ActiveCategoryCount")]
+        public IActionResult ActiveCategoryCount()
+        {
+            var entity = _categoryServices.ActiveCategory();
+            return Ok(entity);
+        }
+
+        [HttpGet("PassiveCategoryCount")]
+        public IActionResult PassiveCategoryCount()
+        {
+            var entity = _categoryServices.PassiveCategory();
+            return Ok(entity);
+        }
+
         public record AddCategoryDto
         {
             [Required(ErrorMessage = "Lütfen Kategori Adı Girin")] public string? CategoryName { get; set; }

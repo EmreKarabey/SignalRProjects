@@ -9,5 +9,9 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICategory:IGeneric<Category>
     {
+        public int CategoryCount();
+
+        public int ActiveCategory();
+        public int PassiveCategory();
     }
 }

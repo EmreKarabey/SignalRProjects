@@ -1,0 +1,239 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<h4 class="page-title">Dashboard</h4>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-stats card-warning">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-database"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Kategori Sayısı</p>
+                            <h4 class="card-title" id="categorycount">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-success">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-bar-chart"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Ürün Sayısı</p>
+                            <h4 class="card-title" id="productscount">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-danger">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Aktif Kategori Sayısı</p>
+                            <h4 class="card-title" id="activecategorycount">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-primary">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-trash"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Pasif Kategori Sayısı</p>
+                            <h4 class="card-title" id="passivecategorycount">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-stats card-warning">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-desktop"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">En Pahalı Ürün</p>
+                            <h4 class="card-title" id="highprice">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-success">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-cubes"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">En Ucuz Ürün</p>
+                            <h4 class="card-title" id="lowprice">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-danger">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-eye"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Son Sipariş</p>
+                            <h4 class="card-title" id="lastorder">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-stats card-primary">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="icon-big text-center">
+                            <i class="la la-dollar"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center">
+                        <div class="numbers">
+                            <p class="card-category">Kasadaki Tutar</p>
+                            <h4 class="card-title" id="sumcase">Yükleniyor...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+        // 1. Bağlantıyı tanımla
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7042/SignalRHub")
+            .withAutomaticReconnect() // Bağlantı koparsa kendi kendine tekrar denesin
+            .build();
+
+        // Bağlantı durumunu başta yaz
+        $("#connstatus").text(connection.state);
+
+        // 2. Veri Geldiğinde Ekrana Yaz (Dinleyiciler)
+        connection.on("ReceiveCategoryCount", (values) => {
+            $("#categorycount").text(values);
+        });
+
+        connection.on("RProductsCount", (values) => {
+            $("#productscount").text(values);
+        });
+
+        connection.on("RActiveCount", (values) => {
+            $("#activecategorycount").text(values);
+        });
+
+        connection.on("RPassiveCount",(values)=>{
+            $("#passivecategorycount").text(values);
+        });
+
+        connection.on("RHighPrice",(values)=>{
+            $("#highprice").text(values);
+        });
+
+        connection.on("RLowPrice",(value)=>{
+            $("#lowprice").text(value);
+        });
+
+        connection.on("RLastOrder",(value)=>{
+            $("#lastorder").text(value+" ₺");
+        });
+
+        connection.on("RSumCase",(value)=>{
+            $("#sumcase").text(value+" ₺");
+        });
+
+        // 3. Bağlantıyı Başlat
+        connection.start().then(() => {
+            $("#connstatus").text("Bağlandı");
+            $("#connstatus").css("color", "green");
+        }).catch((err) => {
+            console.error(err);
+            $("#connstatus").text("Bağlantı Hatası");
+        });
+
+        // 4. GÜVENLİ ZAMANLAYICI (Hata verdirmeyen kısım burası)
+        setInterval(() => {
+            // SADECE ve SADECE bağlantı varsa istek at
+            if (connection.state === "Connected") {
+                connection.invoke("SendStatics").catch(err => console.error(err));
+            } 
+            // Bağlantı yoksa hiçbir şey yapma (Böylece hata sayısı artmaz)
+        }, 1000);
+
+    });
+</script>

@@ -45,6 +45,15 @@ namespace BusinessLayer.Containers
 
             services.AddScoped<ITestimonialServices, TestimonialManager>();
             services.AddScoped<ITestimonial, EFTestimonial>();
+
+            services.AddScoped<IOrderService, OrderManager>();
+            services.AddScoped<IOrder, EFOrder>();
+
+            services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+            services.AddScoped<IMoneyCase, EFMoneyCase>();
+
+            services.AddScoped<IMenuTablesServices, MenuTablesManager>();
+            services.AddScoped<IMenuTables, EFMenuTable>();
         }
     }
 }

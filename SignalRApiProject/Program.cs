@@ -1,4 +1,5 @@
 using BusinessLayer.Containers;
+using SignalRApiProject.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureServices();
-
+builder.Services.AddSignalR();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.WithOrigins("https://localhost:7108").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
@@ -20,10 +28,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseRouting();
 
+app.UseCors("CorsPolicy");
+app.MapHub<SignalRHub>("/SignalRHub");
 app.MapControllers();
 
 app.Run();
