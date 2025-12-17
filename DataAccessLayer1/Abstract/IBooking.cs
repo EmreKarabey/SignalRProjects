@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IBooking:IGeneric<Booking>
     {
+        public void ChangeSuccess(Booking booking);
+        public void ChangeCancel(Booking booking);
     }
 }

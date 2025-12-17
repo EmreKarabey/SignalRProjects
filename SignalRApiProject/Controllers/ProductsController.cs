@@ -29,7 +29,7 @@ namespace SignalRApiProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProducts(AddProductsDto addProductsDto)
+        public async Task<IActionResult> AddProducts([FromForm]AddProductsDto addProductsDto)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
@@ -86,7 +86,7 @@ namespace SignalRApiProject.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProducts(UpdateProductsDto updateProductsDto)
+        public async Task<IActionResult> UpdateProducts([FromForm] UpdateProductsDto updateProductsDto)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
@@ -97,7 +97,7 @@ namespace SignalRApiProject.Controllers
             products.Description = updateProductsDto.Description;
             products.Price = (decimal)updateProductsDto.Price;
             products.CategoryID = (int)updateProductsDto.CategoryId;
-
+            products.ProductStatus = (bool)updateProductsDto.ProductStatus;
 
             if (updateProductsDto.Image == null)
             {
@@ -109,7 +109,7 @@ namespace SignalRApiProject.Controllers
             var resourve = Directory.GetCurrentDirectory();
             var extension = Path.GetExtension(updateProductsDto.Image.FileName);
             var imagename = Guid.NewGuid() + extension;
-            var savelocation = extension + "/Image/ProductsImage/" + imagename;
+            var savelocation = resourve + "/Image/ProductsImage/" + imagename;
 
             using (var stream = new FileStream(savelocation, FileMode.Create))
             {
@@ -179,7 +179,7 @@ namespace SignalRApiProject.Controllers
             [Required(ErrorMessage = "Lütfen Ürün Açıklaması Girin")] public string? Description { get; set; }
             [Required(ErrorMessage = "Lütfen Ürün Fiyatı Girin")] public decimal? Price { get; set; }
             [Required(ErrorMessage = "Lütfen Kategori Girin")] public int? CategoryId { get; set; }
-            public bool? Status { get; set; }
+            public bool ProductStatus { get; set; }
             public IFormFile? Image { get; set; }
 
         }

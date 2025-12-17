@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IMenuTablesServices:IGenericServices<MenuTable>
     {
         public int MenuTableCount();
+
+        public MenuTable GetMenuMasaName(string masano);
     }
 }

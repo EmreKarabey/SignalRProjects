@@ -1,0 +1,65 @@
+﻿@model ContactList
+
+<footer class="footer_section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 footer-col">
+				<div class="footer_contact">
+					<h4>
+						Bizimle İletişime Geç
+					</h4>
+					<div class="contact_link_box">
+						<a href="">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							<span>
+								Yer
+							</span>
+						</a>
+						<a href="">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<span>
+								Ara @Model.Phone
+							</span>
+						</a>
+						<a href="">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>
+								@Model.Mail
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 footer-col">
+				<div class="footer_detail">
+					<a href="" class="footer-logo">
+						Feane
+					</a>
+					<p>
+						@Model.FooterDescription
+					</p>
+					@await Component.InvokeAsync("_HomePageSocialMediaFooterComponents")
+				</div>
+			</div>
+			<div class="col-md-4 footer-col">
+				<h4>
+					Çalışma Saatlerimiz
+				</h4>
+				<p>
+					Her Gün
+				</p>
+				<p>
+					10.00 -22.00
+				</p>
+			</div>
+		</div>
+		<div class="footer-info">
+			<p>
+				&copy; @DateTime.Now.Year Tüm Hakları Saklıdır
+				<br><br>
+				&copy; Emre Karabey
+				<a target="_blank">Yapımı</a>
+			</p>
+		</div>
+	</div>
+</footer>

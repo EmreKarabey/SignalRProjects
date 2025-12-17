@@ -1,11 +1,13 @@
-﻿using BusinessLayer.Abstract;
+﻿using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Context;
 using Microsoft.AspNetCore.SignalR;
 
 namespace SignalRApiProject.Hubs
 {
 
-    //SignalR Dağıtım Yeri (Server)
     public class SignalRHub : Hub
     {
         private readonly ICategoryServices _categoryServices;
@@ -13,14 +15,19 @@ namespace SignalRApiProject.Hubs
         private readonly IOrderService _orderService;
         private readonly IMoneyCaseService _moneyCaseService;
         private readonly IMenuTablesServices _menuTablesServices;
+        private readonly IBookingServices _bookingServices;
+        private readonly INotificationServices _notificationServices;
+        public static int clientcount { get; set; } = 0;
 
-        public SignalRHub(ICategoryServices categoryServices, IProductsServices productsServices, IOrderService orderService, IMoneyCaseService moneyCaseService,IMenuTablesServices menuTablesServices)
+        public SignalRHub(ICategoryServices categoryServices, IProductsServices productsServices, IOrderService orderService, IMoneyCaseService moneyCaseService, IMenuTablesServices menuTablesServices,IBookingServices bookingServices,INotificationServices notificationServices)
         {
             _categoryServices = categoryServices;
             _productsServices = productsServices;
             _orderService = orderService;
             _moneyCaseService = moneyCaseService;
             _menuTablesServices = menuTablesServices;
+            _bookingServices = bookingServices;
+            _notificationServices = notificationServices;
         }
 
         public async Task SendStatics()
@@ -49,6 +56,10 @@ namespace SignalRApiProject.Hubs
 
             var values8 = _moneyCaseService.SumCase();
             await Clients.All.SendAsync("RSumCase", values8.ToString("0.00"));
+
+
+            var values9 = _bookingServices.GetList();
+            await Clients.All.SendAsync("BookingList", values9);
         }
 
 
@@ -61,8 +72,52 @@ namespace SignalRApiProject.Hubs
             await Clients.All.SendAsync("RActiveCount", values3);
 
             var values = _menuTablesServices.MenuTableCount();
-            await Clients.All.SendAsync("RTableCount",values);
+            await Clients.All.SendAsync("RTableCount", values);
         }
 
+        public async Task Booking()
+        {
+            var values9 = _bookingServices.GetList();
+            await Clients.All.SendAsync("BookingList", values9);
+        }
+
+
+        public async Task Notification()
+        {
+            var values = _notificationServices.NotificationCount();
+            await Clients.All.SendAsync("NotificationCounts",values);
+
+            var values2 = _notificationServices.GetList();
+            await Clients.All.SendAsync("NotificatonList",values2);
+        }
+
+        public async Task MenuTablesList()
+        {
+            var values = _menuTablesServices.GetList();
+            await Clients.All.SendAsync("MenuTablesList0",values);
+        }
+
+        public async Task ClientsMessage(string user, string message)
+        {
+            await Clients.All.SendAsync("ClientMessage00",user,message);
+        }
+
+        public async override Task OnConnectedAsync()
+        {
+            clientcount++;
+
+            await Clients.All.SendAsync("ReceiveClientsCount",clientcount);
+
+            await base.OnConnectedAsync();
+        }
+
+        public async override Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientcount--;
+
+            await Clients.All.SendAsync("ReceiveClientsCount",clientcount);
+
+            await base.OnDisconnectedAsync(exception);
+        }
     }
 }

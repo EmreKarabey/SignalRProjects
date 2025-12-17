@@ -37,6 +37,11 @@ namespace BusinessLayer.Concrete
             return _menuTables.GetList();
         }
 
+        public MenuTable GetMenuMasaName(string masano)
+        {
+            return _menuTables.GetMenuMasaName(masano);
+        }
+
         public int MenuTableCount()
         {
             return _menuTables.MenuTableCount();

@@ -4,16 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Context
 {
-    public class DBContext:DbContext
+    public class DBContext:IdentityDbContext<AppUser,AppRole,int>
     {
+       
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-K2BKEMA;Database=DBSignalR;Integrated Security=true;Trust Server Certificate=true");
         }
+
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
@@ -27,5 +31,9 @@ namespace DataAccessLayer.Context
         public DbSet<OrderDetails> OrderDetails { get; set; }
         public DbSet<MoneyCase> MoneyCases { get; set; }
         public DbSet<MenuTable> MenuTables { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

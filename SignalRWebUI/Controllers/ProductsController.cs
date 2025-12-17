@@ -71,6 +71,9 @@ namespace SignalRWebUI.Controllers
             form.Add(new StringContent(updateProducts.Description.ToString()), "Description");
             form.Add(new StringContent(updateProducts.Price.ToString()), "Price");
             form.Add(new StringContent(updateProducts.CategoryID.ToString()), "CategoryID");
+            form.Add(new StringContent(updateProducts.ProductStatus.ToString().ToLower()), "ProductStatus");
+
+            
 
             if (updateProducts.Image != null)
             {

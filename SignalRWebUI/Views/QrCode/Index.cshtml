@@ -1,0 +1,51 @@
+﻿@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="card-title">QrCode İşlemleri</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<form method="post">
+
+					<div class="form-group">
+						<label for="text">Girmek İstediğiniz Değer</label>
+						<br />
+						<input type="text" class="form-control" name="value"  placeholder="Değer Girin">
+						<br />
+						<button type="submit" class="btn btn-primary">Qr Kod Oluştur</button>
+					</div>
+					
+
+					@if (ViewBag.QrCodeImage != null)
+					{
+						<img src="@ViewBag.QrCodeImage" alt="" style="width:400px;height:400px" />
+					}
+				</form>
+			</div>
+
+			<div class="col-md-6">
+				<form method="post" asp-controller="QrCode" asp-action="QrCodeReader" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label for="text">Dosya Seçin</label>
+						<br />
+						<input type="file" class="form-control"  name="file">
+						<br />
+						<button type="submit" class="btn btn-primary">Qr Kodu Oku</button>
+						<br />
+						<br />
+						<input class="form-control" type="text" placeholder="@ViewBag.VSuccess" />
+					</div>
+
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

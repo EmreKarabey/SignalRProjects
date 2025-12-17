@@ -1,0 +1,6 @@
+﻿@model List<CategoryList>
+
+@foreach (var item in Model)
+{
+	<li data-filter=".@item.CategoryName.ToLower()">@item.CategoryName</li>
+}

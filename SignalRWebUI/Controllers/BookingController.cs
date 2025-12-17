@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Booking;
@@ -8,6 +9,7 @@ using SignalRWebUI.Dtos.Category;
 
 namespace SignalRWebUI.Controllers
 {
+    [IgnoreAntiforgeryToken] // <-- B
     public class BookingController : Controller
     {
         public IHttpClientFactory _httpClientFactory;
@@ -95,6 +97,54 @@ namespace SignalRWebUI.Controllers
 
             if (!responsemessage.IsSuccessStatusCode)
                 return RedirectToAction("ErrorPage", "Error");
+
+            return RedirectToAction("BookingList");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCancel(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var responnsemessage = await client.GetAsync($"https://localhost:7042/api/Booking/{id}");
+
+            if(!responnsemessage.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
+
+            var jsonfile = await responnsemessage.Content.ReadAsStringAsync();
+
+            var file = JsonConvert.DeserializeObject<UpdateBooking>(jsonfile);
+
+            var jsonfile2 = JsonConvert.SerializeObject(file);
+
+            var stringcontent = new StringContent(jsonfile2,Encoding.UTF8,"application/json");
+
+            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Booking/ChangeCancel", stringcontent);
+
+            if(!responsemessage2.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
+
+            return RedirectToAction("BookingList");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateSuccess(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var responnsemessage = await client.GetAsync($"https://localhost:7042/api/Booking/{id}");
+
+            if (!responnsemessage.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
+
+            var jsonfile = await responnsemessage.Content.ReadAsStringAsync();
+
+            var file = JsonConvert.DeserializeObject<UpdateBooking>(jsonfile);
+
+            var jsonfile2 = JsonConvert.SerializeObject(file);
+
+            var stringcontent = new StringContent(jsonfile2, Encoding.UTF8, "application/json");
+
+            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Booking/ChangeSuccess", stringcontent);
+
+            if (!responsemessage2.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
 
             return RedirectToAction("BookingList");
         }

@@ -1,13 +1,18 @@
 ﻿using AutoMapper;
 using EntityLayer.Concrete;
 using SignalRWebUI.Dtos.About;
+using SignalRWebUI.Dtos.AppUser;
+using SignalRWebUI.Dtos.Basket;
 using SignalRWebUI.Dtos.Booking;
 using SignalRWebUI.Dtos.Categories;
 using SignalRWebUI.Dtos.Category;
 using SignalRWebUI.Dtos.Contact;
 using SignalRWebUI.Dtos.Discount;
 using SignalRWebUI.Dtos.Feature;
+using SignalRWebUI.Dtos.MenuTable;
+using SignalRWebUI.Dtos.Notification;
 using SignalRWebUI.Dtos.Products;
+using SignalRWebUI.Dtos.Slider;
 using SignalRWebUI.Dtos.SocialMedia;
 using SignalRWebUI.Dtos.Testimonial;
 
@@ -39,6 +44,15 @@ namespace SignalRWebUI.AutoMapper
             CreateMap<ContactList, Contact>().ReverseMap();
             CreateMap<AddContact, Contact>().ReverseMap();
             CreateMap<UpdateContact, Contact>().ReverseMap();
+            CreateMap<SliderList, Slider>().ReverseMap();
+            CreateMap<AboutList, About>().ReverseMap();
+            CreateMap<BasketsList, Basket>().ReverseMap();
+            CreateMap<AddBasket, Basket>().ReverseMap();
+            CreateMap<NotificationList, Notification>().ReverseMap();
+            CreateMap<MenuTableList, MenuTable>().ReverseMap();
+            CreateMap<UpdateMenuTable, MenuTable>().ReverseMap();
+            CreateMap<AddMenuTable, MenuTable>().ReverseMap();
+            CreateMap<UpdateAppUser, AppUser>().ReverseMap();
         }
     }
 }

@@ -16,9 +16,15 @@ namespace SignalRApiProject.Controllers
         {
             _aboutServices = aboutServices;
         }
+        [HttpGet]
+        public IActionResult AboutList()
+        {
+            var list = _aboutServices.GetList();
 
+            return Ok(list);
+        }
         [HttpGet("{id}")]
-        public IActionResult AboutView(int id)
+        public IActionResult GetById(int id)
         {
             var entity = _aboutServices.GetById(id);
 
@@ -27,7 +33,7 @@ namespace SignalRApiProject.Controllers
             return Ok(entity);
         }
 
-        
+
 
         [HttpPost]
         public async Task<IActionResult> AddAbout([FromForm] AddAboutDto addAbout)
@@ -116,6 +122,8 @@ namespace SignalRApiProject.Controllers
 
             return Ok("Başarılı Bir Şekilde Güncellenildi");
         }
+
+      
 
         public record AddAboutDto
         {

@@ -10,5 +10,7 @@ namespace DataAccessLayer.Abstract
     public interface IMenuTables:IGeneric<MenuTable>
     {
         public int MenuTableCount();
+
+        public MenuTable GetMenuMasaName(string masano);
     }
 }

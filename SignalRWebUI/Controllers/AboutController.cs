@@ -17,6 +17,22 @@ namespace SignalRWebUI.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> AboutList()
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var responsemessage = await client.GetAsync("https://localhost:7042/api/About");
+
+            if(!responsemessage.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
+
+            var jsonfile = await responsemessage.Content.ReadAsStringAsync();
+
+            var file = JsonConvert.DeserializeObject<List<AboutList>>(jsonfile);
+
+            return View(file);
+        }
+
 
         [HttpGet]
         public IActionResult AddAbout()
@@ -48,7 +64,7 @@ namespace SignalRWebUI.Controllers
             if (!responsemessage.IsSuccessStatusCode)
                 return RedirectToAction("ErrorPage", "Error");
 
-            return RedirectToAction("AddAbout");
+            return RedirectToAction("AboutList");
         }
 
 
@@ -93,7 +109,18 @@ namespace SignalRWebUI.Controllers
 
             if (!responsemessage.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
 
-            return RedirectToAction("AddAbout");
+            return RedirectToAction("AboutList");
+        }
+
+        public async Task<IActionResult> DeleteAbout(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var responsemessage = await client.DeleteAsync($"https://localhost:7042/api/About/{id}");
+
+            if(!responsemessage.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
+
+            return RedirectToAction("AboutList");
         }
     }
 }

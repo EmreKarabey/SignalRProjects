@@ -1,0 +1,55 @@
+﻿@model UpdateAppUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-valide" method="post">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title">Profil Güncelleme Sayfası</div>
+			</div>
+
+			<div class="card-body">
+				<input type="hidden" class="form-control" asp-for="Id" placeholder="@Model.Id">
+
+				<div class="form-group">
+					<label for="text">Adınız</label>
+					<input type="text" class="form-control" asp-for="Name" placeholder="@Model.Name">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Soyadınız</label>
+					<input type="text" class="form-control" asp-for="Surname" placeholder="@Model.Surname">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Kullanıcı Adı</label>
+					<input type="text" class="form-control" asp-for="UserName" placeholder="@Model.UserName">
+				</div>
+
+				<div class="form-group">
+					<label for="text">E-Mail</label>
+					<input type="email" class="form-control" asp-for="Email" placeholder="@Model.Email">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Şifre</label>
+					<input type="text" class="form-control" asp-for="Password" placeholder="@Model.Password">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Şifre Tekrarı</label>
+					<input type="text" class="form-control" asp-for="ConfirmPassword" placeholder="@Model.ConfirmPassword">
+				</div>
+
+				
+			</div>
+			<div class="card-action">
+				<button class="btn btn-success" type="submit">Güncelle</button>
+			
+			</div>
+		</div>
+	</div>
+</form>

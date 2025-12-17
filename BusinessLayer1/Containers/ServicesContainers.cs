@@ -54,6 +54,18 @@ namespace BusinessLayer.Containers
 
             services.AddScoped<IMenuTablesServices, MenuTablesManager>();
             services.AddScoped<IMenuTables, EFMenuTable>();
+
+            services.AddScoped<ISliderServices, SliderManager>();
+            services.AddScoped<ISlider, EFSlider>();
+
+            services.AddScoped<IBasketServices, BasketManager>();
+            services.AddScoped<IBasket, EFBasket>();
+
+            services.AddScoped<INotificationServices, NotificationManager>();
+            services.AddScoped<INotification, EFNotification>();
+
+            services.AddScoped<IMessageServices, MessageManager>();
+            services.AddScoped<IMessage, EFMessage>();
         }
     }
 }

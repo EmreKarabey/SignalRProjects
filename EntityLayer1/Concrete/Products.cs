@@ -19,5 +19,7 @@ namespace EntityLayer.Concrete
         public Category Category { get; set; }
 
         ICollection<OrderDetails> orderDetails { get; set; } = new List<OrderDetails>();
+
+        ICollection<Basket> baskets { get; set; } = new List<Basket>();
     }
 }

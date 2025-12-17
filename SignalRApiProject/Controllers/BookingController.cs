@@ -35,14 +35,14 @@ namespace SignalRApiProject.Controllers
                 Mail = addbooking.Mail,
                 Phone = addbooking.Phone,
                 PersonCount = (int)addbooking.PersonCount,
-                Date =(DateTime) addbooking.Date
+                Date = (DateTime)addbooking.Date
 
             };
 
             _bookingServices.Add(booking);
 
             return Ok("Başarılı Bir Şekilde Eklenildi");
-           
+
         }
 
         [HttpGet("{id}")]
@@ -73,6 +73,44 @@ namespace SignalRApiProject.Controllers
             return Ok("Başarılı Bir Şekilde Güncellendi");
         }
 
+        [HttpPut("ChangeSuccess")]
+        public IActionResult ChangeSuccess(UpdateBookingDto updateBookingDto)
+        {
+            var booking = new Booking
+            {
+                BookingID = updateBookingDto.BookingID,
+                Name = updateBookingDto.Name,
+                Phone = updateBookingDto.Phone,
+                Mail=updateBookingDto.Mail,
+                PersonCount = (int) updateBookingDto.PersonCount,
+                Date = (DateTime) updateBookingDto.Date,
+                Status = "Rezervasyon Onaylandı"
+
+            };
+            _bookingServices.ChangeSuccess(booking);
+
+            return Ok("Başarılı Bir Şekilde Durum Güncellendi");
+        }
+
+        [HttpPut("ChangeCancel")]
+        public IActionResult ChangeCancel(UpdateBookingDto updateBookingDto)
+        {
+            var booking = new Booking
+            {
+                BookingID = updateBookingDto.BookingID,
+                Name = updateBookingDto.Name,
+                Phone = updateBookingDto.Phone,
+                Mail = updateBookingDto.Mail,
+                PersonCount = (int)updateBookingDto.PersonCount,
+                Date = (DateTime)updateBookingDto.Date,
+                Status = "Rezervasyon İptal Edildi"
+
+            };
+            _bookingServices.ChangeCancel(booking);
+
+            return Ok("Başarılı Bir Şekilde Durum Güncellendi");
+        }
+
         public record AddBookingDto
         {
             [Required(ErrorMessage = "Lütfen İsim Girin")] public string? Name { get; set; }
@@ -82,6 +120,16 @@ namespace SignalRApiProject.Controllers
             [Required(ErrorMessage = "Lütfen Tarih Girin")] public DateTime? Date { get; set; }
         }
 
-   
+        public record UpdateBookingDto
+        {
+            public int BookingID { get; set; }
+            [Required(ErrorMessage = "Lütfen İsim Girin")] public string? Name { get; set; }
+            [Required(ErrorMessage = "Lütfen Telefon Numarası Girin")] public string? Phone { get; set; }
+            [Required(ErrorMessage = "Lütfen Mail Girin")] public string? Mail { get; set; }
+            [Required(ErrorMessage = "Lütfen Kişi Sayısı Girin")] public int? PersonCount { get; set; }
+            [Required(ErrorMessage = "Lütfen Tarih Girin")] public DateTime? Date { get; set; }
+        }
+
+
     }
 }

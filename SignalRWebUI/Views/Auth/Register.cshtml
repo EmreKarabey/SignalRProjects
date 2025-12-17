@@ -1,0 +1,71 @@
+﻿@model RegisterDto 
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SignalR Kayıt Sayfası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/Traversal_Login_Register-main/colorlib-regform-26/fonts/linearicons/style.css">
+
+    <link rel="stylesheet" href="~/Traversal_Login_Register-main/colorlib-regform-26/css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="inner">
+            <img src="~/Traversal_Login_Register-main/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
+            <form method="post">
+                <h3>Yeni misiniz?</h3> <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" asp-for="Name" class="form-control" placeholder="Adınız">
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span> 
+                    <input type="text" asp-for="Surname" class="form-control" placeholder="Soyadınız">
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-tag"></span>
+                    <input type="text" asp-for="UserName" class="form-control" placeholder="Kullanıcı Adınız">
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="email" asp-for="Mail" class="form-control" placeholder="E-Posta Adresiniz">
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Şifreniz">
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Şifrenizi Tekrar Girin">
+                </div>
+
+                <div style="color:red; font-size:small; margin-bottom:10px;">
+                    <div asp-validation-summary="All"></div>
+                </div>
+
+                <button>
+                    <span>Kayıt Ol</span>
+                </button>
+            </form>
+            <img src="~/Traversal_Login_Register-main/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+        </div>
+
+    </div>
+
+    <script src="~/Traversal_Login_Register-main/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Traversal_Login_Register-main/colorlib-regform-26/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@{
+	ViewData["Title"] = "_WebUILayout";
+}
+
+<!DOCTYPE html>
+<html>
+
+    @await Html.PartialAsync("/Views/WebUIPartialView/_HeadPartial.cshtml")
+
+<body>
+
+	<div class="hero_area">
+		
+		<!-- header section strats -->
+		@await Html.PartialAsync("/Views/WebUIPartialView/_HeaderPartial.cshtml")
+
+		@RenderBody()
+	</div>
+	@await Component.InvokeAsync("_ContactWebUIComponents")
+
+	@await Html.PartialAsync("/Views/WebUIPartialView/_ScriptPartial.cshtml")
+</body>
+
+</html>
+

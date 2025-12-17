@@ -1,0 +1,68 @@
+﻿@model List<NotificationList>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="card-title">Bildirim Tablosu</div>
+		</div>
+		<div class="card-body">
+			<table class="table mt-3">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Tip Adı</th>
+						<th scope="col">Açıklama</th>
+						<th scope="col">Tarih</th>
+						<th scope="col">Durum</th>
+						<th scope="col">Güncelle</th>
+						<th scope="col">Sil</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.NotificationID</td>
+							<td>@item.Type</td>
+							<td>@item.Description</td>
+							<td>@item.Date</td>
+							@if (@item.Status == true)
+							{
+								<td>
+									<span class="badge bg-success">Okundu</span>
+								</td>
+								<td>
+									<form asp-action="UpdateRead" asp-controller="Notification" asp-route-id="@item.NotificationID" method="post">
+										<button href="/Category/UpdateCategory/@item" class="btn btn-outline-primary">Okunmadı Olarak İşaretle</button>
+									</form>
+								</td>
+								
+							}
+							else
+							{
+								<td>
+									<span class="badge bg-danger">Okunmadı</span>
+								</td>
+								<td>
+									<form asp-action="UpdateRead" asp-controller="Notification" asp-route-id="@item.NotificationID" method="post">
+										<button type="submit" class="btn btn-outline-primary">Okundu Olarak İşaretle</button>
+									</form>
+								</td>
+							}
+
+
+							<td><a href="/Notification/DeleteNotification/@item.NotificationID" class="btn btn-outline-danger">Sil</a></td>
+
+						</tr>
+					}
+				</tbody>
+			</table>
+			<a href="/Category/AddCategory" class="btn btn-outline-warning">Kategori Ekle</a>
+		</div>
+	</div>
+</div>
+

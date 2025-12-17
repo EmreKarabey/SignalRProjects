@@ -1,7 +1,7 @@
-using System.Net;
-using Microsoft.Extensions.Hosting;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
-using SignalRApiProject.Hubs;
+using DataAccessLayer.Context;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(opts =>
+    {
+        opts.LoginPath = "/Login/Index"; // Giriþ yapmamýþ kullanýcýyý atacaðý yer
+        opts.LogoutPath = "/Login/LogOut";
+        opts.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Çerez süresi
+        opts.Cookie.Name = "SignalRWebUICookie"; // Çereze bir isim ver
+        opts.SlidingExpiration = true; // Kullanýcý iþlem yaptýkça süreyi uzat
+    });
+
+builder.Services.AddDbContext<DBContext>();
 
 
 //SignalR çalýþmasý için yapýlan Cors Politikalarý
@@ -45,6 +57,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 
+app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -57,7 +70,7 @@ app.UseAuthorization();
 
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "login",
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
 
 app.Run();

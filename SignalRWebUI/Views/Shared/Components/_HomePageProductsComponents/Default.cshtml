@@ -1,0 +1,20 @@
+﻿
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Menülerimiz
+            </h2>
+        </div>
+   
+
+        <ul class="filters_menu">
+            <li class="active" data-filter="*">Hepsi</li>
+            @await Component.InvokeAsync("_HomePageCategoriesFiltreComponents")
+        </ul>
+
+        <div class="filters-content">
+            @await Component.InvokeAsync("_HomePageProductsFiltreListComponent", new { TableName = ViewBag.Name})
+        </div>
+    </div>
+</section>

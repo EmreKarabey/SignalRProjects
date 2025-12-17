@@ -22,6 +22,16 @@ namespace BusinessLayer.Concrete
             _booking.Add(t);
         }
 
+        public void ChangeCancel(Booking booking)
+        {
+            _booking.ChangeCancel(booking);
+        }
+
+        public void ChangeSuccess(Booking booking)
+        {
+            _booking.ChangeSuccess(booking);
+        }
+
         public void Delete(Booking t)
         {
             _booking.Delete(t);

@@ -21,7 +21,7 @@ namespace SignalRApiProject.Controllers
         [HttpGet]
         public IActionResult DiscountList()
         {
-            var list = _discountServices.GetList();
+            var list = _discountServices.GetList().OrderByDescending(N=>N.DiscountID).Take(2);
 
             return Ok(list);
         }

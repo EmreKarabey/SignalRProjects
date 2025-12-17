@@ -35,16 +35,8 @@
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Durum</label>
 					<select asp-for="ProductStatus" class="form-control">
-						@if (Model.ProductStatus == true)
-						{
-							<option value="1">Stokta Mevcut</option>
-							<option value="0">Stokta Değil</option>
-						}
-						else
-						{
-							<option value="0">Stokta Değil</option>
-							<option value="1">Stokta Mevcut</option>
-						}
+							<option value="true">Stokta Mevcut</option>
+							<option value="false">Stokta Değil</option>
 					</select>
 				</div>
 
