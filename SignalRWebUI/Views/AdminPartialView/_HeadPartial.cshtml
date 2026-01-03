@@ -1,9 +1,68 @@
 ﻿<head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Ready Bootstrap Dashboard</title>
+	<title>Ready Sipariş</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/ready.css">
 	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/demo.css">
+	<style>
+		.active {
+			background-color: #eef2f6 !important; /* Rengi zorla */
+			color: #5e35b1 !important;
+			border-left: 4px solid #5e35b1;
+			font-weight: bold;
+			/* Hata alan Input'un tasarımı */
+			.form-control.input-validation-error
+
+		{
+			border-color: #ff4e50 !important; /* Kırmızı çerçeve */
+			background-color: #fffbfb; /* Çok hafif kırmızı arka plan */
+			box-shadow: 0 0 0 0.2rem rgba(255, 78, 80, 0.1); /* Hafif kırmızı gölge */
+			padding-right: 40px; /* Sağdaki ikonla çakışmaması için */
+		}
+
+		/* Input içindeki ikonun rengi hata durumunda kırmızı olsun */
+		.form-control.input-validation-error + .input-icon {
+			color: #ff4e50 !important;
+		}
+
+		/* Hata mesajı metninin tasarımı */
+		.field-validation-error {
+			color: #ff4e50;
+			font-size: 12px;
+			font-weight: 600;
+			margin-top: 5px;
+			display: flex;
+			align-items: center;
+			animation: fadeIn 0.3s ease-in-out; /* Hafif bir belirme efekti */
+		}
+
+			/* Hata mesajının başına ünlem ikonu ekleme (CSS ile) */
+			.field-validation-error::before {
+				content: "\f06a"; /* LineAwesome ünlem ikonu kodu */
+				font-family: "Line Awesome Free"; /* İkon ailesi */
+				font-weight: 900;
+				margin-right: 5px;
+				font-size: 14px;
+			}
+
+		/* Animasyon tanımı */
+		@@keyframes fadeIn {
+			from
+
+		{
+			opacity: 0;
+			transform: translateY(-5px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		}
+		}
+	</style>
+
 </head>

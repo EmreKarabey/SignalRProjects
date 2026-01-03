@@ -11,5 +11,7 @@
         public string ConfirmPassword { get; set; }
         public string ImageURL { get; set; }
         public IFormFile Image { get; set; }
+        public string PhoneNumber { get; set; }
+        public DateTime CreateAt { get; set; }
     }
 }

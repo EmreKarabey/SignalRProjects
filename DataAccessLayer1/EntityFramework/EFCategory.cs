@@ -12,10 +12,16 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFCategory : GenericRepository<Category>, ICategory
     {
+
+        private readonly DBContext c;
+
+        public EFCategory(DBContext c):base(c)
+        {
+            this.c = c;
+        }
+
         public int ActiveCategory()
         {
-            using var c = new DBContext();
-
             var entity = c.Categories.Where(N => N.CategoryStatus == true).Count();
 
             return entity;
@@ -23,8 +29,6 @@ namespace DataAccessLayer.EntityFramework
 
         public int CategoryCount()
         {
-            using var c = new DBContext();
-
             var count = c.Categories.Count();
 
             return count;
@@ -32,8 +36,6 @@ namespace DataAccessLayer.EntityFramework
 
         public int PassiveCategory()
         {
-            using var c = new DBContext();
-
             var entity = c.Categories.Where(N => N.CategoryStatus == false).Count();
 
             return entity;

@@ -13,12 +13,17 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFBasket : GenericRepository<Basket>, IBasket
     {
-        
+
+
+        private readonly DBContext c;
+
+        public EFBasket(DBContext c):base(c)
+        {
+            this.c = c;
+        }
 
         public List<Basket> GetMenuTableBasket(int id)
         {
-            using var c = new DBContext();
-
             var list = c.Baskets.Include(N=>N.Products).Where(N => N.MenuTable.MenuTableID == id).ToList();
 
             return list;

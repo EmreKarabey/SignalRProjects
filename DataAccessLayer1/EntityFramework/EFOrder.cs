@@ -12,10 +12,14 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFOrder : GenericRepository<Order>, IOrder
     {
+        private readonly DBContext c;
+
+        public EFOrder(DBContext c) : base(c)
+        {
+            this.c = c;
+        }
         public int ActiveOrderCount()
         {
-            using var c = new DBContext();
-
             var entity = c.Orders.Where(N => N.OrderStatus == true).Count();
 
             return entity;
@@ -23,8 +27,6 @@ namespace DataAccessLayer.EntityFramework
 
         public decimal LastOrderPrice()
         {
-            using var c = new DBContext();
-
             var entity = c.Orders.OrderByDescending(n => n.Date).Select(n => n.TotalPrice).FirstOrDefault();
 
             return entity;
@@ -32,8 +34,6 @@ namespace DataAccessLayer.EntityFramework
 
         public int OrderCount()
         {
-            using var c = new DBContext();
-
             var entity = c.Orders.Count();
 
             return entity;
@@ -41,8 +41,6 @@ namespace DataAccessLayer.EntityFramework
 
         public decimal TodaySumCase()
         {
-            using var c = new DBContext();
-
             var entity = c.Orders.Where(N => N.Date.Date == DateTime.Now.Date).Sum(N => N.TotalPrice);
 
             return entity;

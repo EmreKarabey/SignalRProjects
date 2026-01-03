@@ -12,10 +12,14 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFNotification : GenericRepository<Notification>, INotification
     {
+        private readonly DBContext c;
+
+        public EFNotification(DBContext c): base(c)
+        {
+            this.c = c;
+        }
         public int NotificationCount()
         {
-            using var c = new DBContext();
-
             var count = c.Notifications.Where(n=>n.Status==false).Count();
 
             return count;

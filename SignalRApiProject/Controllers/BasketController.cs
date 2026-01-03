@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,13 @@ namespace SignalRApiProject.Controllers
     public class BasketController : ControllerBase
     {
         public IBasketServices _basketServices;
+        private readonly IMapper _mapper;
 
-        public BasketController(IBasketServices basketServices)
+
+        public BasketController(IBasketServices basketServices,IMapper mapper)
         {
             _basketServices = basketServices;
+            _mapper = mapper;
         }
         [HttpGet("{id}")]
         public IActionResult GetMenuTableBasket(int id)
@@ -27,15 +31,8 @@ namespace SignalRApiProject.Controllers
         [HttpPost]
         public IActionResult CreateBasket(CreateBasket createBasket)
         {
-            var basket = new Basket()
-            {
-                ProductsID = createBasket.ProductsID,
-                MenuTableID = createBasket.MenuTableID,
-                UnitPrice = createBasket.UnitPrice,
-                TotalPrice = createBasket.UnitPrice * createBasket.Count,
-                Count = createBasket.Count
-            };
-            _basketServices.Add(basket);
+            var values = _mapper.Map<Basket>(createBasket);
+            _basketServices.Add(values);
 
             return Ok("Başarılı Bir Şekilde Sipariş Eklenildi");
         }

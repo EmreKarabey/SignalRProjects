@@ -12,5 +12,8 @@ namespace BusinessLayer.Abstract
         public int MenuTableCount();
 
         public MenuTable GetMenuMasaName(string masano);
+
+        public void UpdateTrue(int id);
+        public void UpdateFalse(int id);
     }
 }

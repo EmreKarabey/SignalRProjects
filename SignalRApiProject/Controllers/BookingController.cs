@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -11,10 +12,13 @@ namespace SignalRApiProject.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingServices _bookingServices;
+        private readonly IMapper _mapper;
 
-        public BookingController(IBookingServices bookingServices)
+
+        public BookingController(IBookingServices bookingServices, IMapper mapper)
         {
             _bookingServices = bookingServices;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult GetAboutList()
@@ -29,17 +33,9 @@ namespace SignalRApiProject.Controllers
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-            var booking = new Booking()
-            {
-                Name = addbooking.Name,
-                Mail = addbooking.Mail,
-                Phone = addbooking.Phone,
-                PersonCount = (int)addbooking.PersonCount,
-                Date = (DateTime)addbooking.Date
+            var values = _mapper.Map<Booking>(addbooking);
 
-            };
-
-            _bookingServices.Add(booking);
+            _bookingServices.Add(values);
 
             return Ok("Başarılı Bir Şekilde Eklenildi");
 
@@ -66,27 +62,30 @@ namespace SignalRApiProject.Controllers
             return Ok("Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
-        public IActionResult UpdateBooking(Booking booking)
+        public IActionResult UpdateBooking(UpdateBookingDto booking)
         {
-            _bookingServices.Update(booking);
+            var entity = _bookingServices.GetById(booking.BookingID);
 
+            if (entity == null) return NotFound();
+
+            entity.Phone = booking.Phone;
+            entity.Status = booking.Status;
+            entity.Date = (DateTime)booking.Date;
+            entity.BookingID = booking.BookingID;
+            entity.Name = booking.Name;
+            entity.PersonCount = (int)booking.PersonCount;
+
+            _bookingServices.Update(entity);
             return Ok("Başarılı Bir Şekilde Güncellendi");
         }
 
         [HttpPut("ChangeSuccess")]
         public IActionResult ChangeSuccess(UpdateBookingDto updateBookingDto)
         {
-            var booking = new Booking
-            {
-                BookingID = updateBookingDto.BookingID,
-                Name = updateBookingDto.Name,
-                Phone = updateBookingDto.Phone,
-                Mail=updateBookingDto.Mail,
-                PersonCount = (int) updateBookingDto.PersonCount,
-                Date = (DateTime) updateBookingDto.Date,
-                Status = "Rezervasyon Onaylandı"
+            var booking = _bookingServices.GetById(updateBookingDto.BookingID);
 
-            };
+            booking.Status = "Rezervasyon Onaylandı";
+
             _bookingServices.ChangeSuccess(booking);
 
             return Ok("Başarılı Bir Şekilde Durum Güncellendi");
@@ -95,17 +94,10 @@ namespace SignalRApiProject.Controllers
         [HttpPut("ChangeCancel")]
         public IActionResult ChangeCancel(UpdateBookingDto updateBookingDto)
         {
-            var booking = new Booking
-            {
-                BookingID = updateBookingDto.BookingID,
-                Name = updateBookingDto.Name,
-                Phone = updateBookingDto.Phone,
-                Mail = updateBookingDto.Mail,
-                PersonCount = (int)updateBookingDto.PersonCount,
-                Date = (DateTime)updateBookingDto.Date,
-                Status = "Rezervasyon İptal Edildi"
 
-            };
+            var booking = _bookingServices.GetById(updateBookingDto.BookingID);
+
+            booking.Status = "Rezervasyon İptal Edildi";
             _bookingServices.ChangeCancel(booking);
 
             return Ok("Başarılı Bir Şekilde Durum Güncellendi");
@@ -128,6 +120,7 @@ namespace SignalRApiProject.Controllers
             [Required(ErrorMessage = "Lütfen Mail Girin")] public string? Mail { get; set; }
             [Required(ErrorMessage = "Lütfen Kişi Sayısı Girin")] public int? PersonCount { get; set; }
             [Required(ErrorMessage = "Lütfen Tarih Girin")] public DateTime? Date { get; set; }
+            public string Status { get; set; }
         }
 
 

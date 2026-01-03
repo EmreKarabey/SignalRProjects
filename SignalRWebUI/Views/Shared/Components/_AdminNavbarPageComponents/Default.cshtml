@@ -1,0 +1,20 @@
+﻿@model AppUserList
+
+<li class="nav-item dropdown">
+	<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="@ViewBag.Image" alt="user-img" width="36" height="36" class="img-circle"><span>@Model.Name @Model.Surname</span></a>
+	<ul class="dropdown-menu dropdown-user">
+		<li>
+			<div class="user-box">
+				<div class="u-img"><img src="@ViewBag.Image" width="80" height="80" alt="user"></div>
+				<div class="u-text">
+					<h4>@Model.Name @Model.Surname</h4>
+					<p class="text-muted">@Model.Email</p><a href="/Auth/GetProfile" class="btn btn-rounded btn-danger btn-sm">Profilimi Görüntüle</a>
+				</div>
+			</div>
+		</li>
+		<div class="dropdown-divider"></div>
+		<a class="dropdown-item" href="/AdminMessage/Index"><i class="ti-email"></i>Mail Gönder</a>
+		<a class="dropdown-item" href="/Auth/LogOut"><i class="fa fa-power-off"></i> Çıkış</a>
+	</ul>
+	<!-- /.dropdown-user -->
+</li>

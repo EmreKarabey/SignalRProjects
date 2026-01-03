@@ -1,71 +1,223 @@
-﻿@model RegisterDto 
+﻿@model RegisterDto
 @{
-    ViewData["Title"] = "Register";
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="utf-8">
-    <title>SignalR Kayıt Sayfası</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Kayıt Ol - Ready Sipariş</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-    <link rel="stylesheet" href="~/Traversal_Login_Register-main/colorlib-regform-26/fonts/linearicons/style.css">
+	<style>
+		body {
+			background: #f3f5f9;
+			background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+			min-height: 100vh; /* height yerine min-height, içerik uzarsa kaydırma çubuğu çıksın diye */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			padding: 20px; /* Mobilde kenarlara yapışmasın */
+		}
 
-    <link rel="stylesheet" href="~/Traversal_Login_Register-main/colorlib-regform-26/css/style.css">
+		.login-card {
+			width: 100%;
+			max-width: 500px; /* Alanlar çok olduğu için genişliği 400'den 500'e çıkardım, daha ferah durur */
+			border-radius: 15px;
+			border: none;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		.login-header {
+			background: #fff;
+			padding: 30px 20px 10px;
+			text-align: center;
+		}
+
+		.login-body {
+			padding: 30px 40px;
+			background: #fff;
+		}
+
+		.form-control {
+			height: 50px;
+			padding-left: 20px;
+			font-size: 14px;
+			border-radius: 50px;
+			border: 1px solid #eee;
+			background-color: #f8f9fa;
+		}
+
+			.form-control:focus {
+				border-color: #1572E8;
+				box-shadow: none;
+				background-color: #fff;
+			}
+
+		.btn-login {
+			height: 50px;
+			border-radius: 50px;
+			font-weight: bold;
+			font-size: 16px;
+			background: #1572E8;
+			border: none;
+			transition: all 0.3s;
+		}
+
+			.btn-login:hover {
+				background: #1261c9;
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(21, 114, 232, 0.4);
+			}
+
+		.input-icon {
+			position: absolute;
+			right: 25px;
+			top: 15px;
+			color: #aaa;
+			font-size: 20px;
+		}
+
+		.form-group {
+			position: relative;
+			margin-bottom: 20px;
+		}
+		/* Dosya yükleme inputu için özel stil */
+		.file-upload-wrapper {
+			position: relative;
+			height: 50px;
+			border-radius: 50px;
+			border: 1px solid #eee;
+			background-color: #f8f9fa;
+			display: flex;
+			align-items: center;
+			padding-left: 20px;
+			overflow: hidden;
+		}
+
+			.file-upload-wrapper input[type=file] {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+
+		.file-upload-text {
+			color: #aaa;
+			font-size: 14px;
+		}
+	</style>
 </head>
-
 <body>
 
-    <div class="wrapper">
-        <div class="inner">
-            <img src="~/Traversal_Login_Register-main/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-            <form method="post">
-                <h3>Yeni misiniz?</h3> <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="text" asp-for="Name" class="form-control" placeholder="Adınız">
-                </div>
+	<div class="login-card">
+		<div class="login-header">
+			<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+				<div style="width: 50px; height: 50px; background-color: #1572E8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; box-shadow: 0 4px 10px rgba(21, 114, 232, 0.3);">
+					<i class="la la-user-plus" style="font-size: 24px; color: white;"></i>
+				</div>
+				<div style="text-align: left;">
+					<span style="display: block; font-size: 22px; font-weight: 800; color: #333; line-height: 1;">Ready</span>
+					<span style="display: block; font-size: 16px; font-weight: 500; color: #666;">Kayıt Ol</span>
+				</div>
+			</div>
+			<p class="text-muted mb-0" style="font-size: 14px;">Yeni Hesap Oluşturun</p>
+		</div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span> 
-                    <input type="text" asp-for="Surname" class="form-control" placeholder="Soyadınız">
-                </div>
+		<div class="login-body">
+			<form method="post" enctype="multipart/form-data">
 
-                <div class="form-holder">
-                    <span class="lnr lnr-tag"></span>
-                    <input type="text" asp-for="UserName" class="form-control" placeholder="Kullanıcı Adınız">
-                </div>
+				<div class="form-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" class="form-control" asp-for="Name" placeholder="Adınız" autocomplete="false">
+							<i class="la la-user input-icon" style="right: 15px;"></i>
+							<span asp-validation-for="Name" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" class="form-control" asp-for=Surname placeholder="Soyadınız" autocomplete="false">
+							<i class="la la-user input-icon" style="right: 15px;"></i>
+							<span asp-validation-for="Surname" class="text-danger"></span>
+						</div>
+					</div>
+				</div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-envelope"></span>
-                    <input type="email" asp-for="Mail" class="form-control" placeholder="E-Posta Adresiniz">
-                </div>
+				<div class="form-group">
+					<input type="text" class="form-control" asp-for="UserName" placeholder="Kullanıcı Adı" autocomplete="false">
+					<i class="la la-user-tag input-icon"></i>
+					<span asp-validation-for="UserName" class="text-danger"></span>
+				</div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" asp-for="Password" class="form-control" placeholder="Şifreniz">
-                </div>
+				<div class="form-group">
+					<input type="email" class="form-control" asp-for="Mail" placeholder="E-Posta Adresi" autocomplete="false">
+					<i class="la la-envelope input-icon"></i>
+					<span asp-validation-for="Mail" class="text-danger"></span>
+				</div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Şifrenizi Tekrar Girin">
-                </div>
+				<div class="form-group">
+					<div class="file-upload-wrapper">
+						<span class="file-upload-text">Profil Resmi Seçin...</span>
+						<input type="file" asp-for="Image" accept="image/*" autocomplete="false">
+						<i class="la la-cloud-upload input-icon"></i>
+						<span asp-validation-for="Image" class="text-danger"></span>
+					</div>
+				</div>
 
-                <div style="color:red; font-size:small; margin-bottom:10px;">
-                    <div asp-validation-summary="All"></div>
-                </div>
+				<div class="form-group">
+					<input type="password" class="form-control" asp-for="Password" placeholder="Şifre (Min 6 Karakter)" autocomplete="false">
+					<i class="la la-lock input-icon"></i>
+					<span asp-validation-for="Password" class="text-danger"></span>
+				</div>
 
-                <button>
-                    <span>Kayıt Ol</span>
-                </button>
-            </form>
-            <img src="~/Traversal_Login_Register-main/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
-        </div>
+				<div class="form-group">
+					<input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Şifreyi Tekrar Girin" autocomplete="false">
+					<i class="la la-check-circle input-icon"></i>
+					<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon Numarası" autocomplete="false">
+					<i class="la la-phone input-icon"></i>
+					<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+				</div>
 
-    </div>
+				<button type="submit" class="btn btn-primary btn-block btn-login mt-4">
+					Kayıt İşlemini Tamamla
+				</button>
 
-    <script src="~/Traversal_Login_Register-main/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
-    <script src="~/Traversal_Login_Register-main/colorlib-regform-26/js/main.js"></script>
+				<div class="text-center mt-3">
+					<span class="text-muted small">Zaten hesabınız var mı?</span>
+					<a href="/Auth/Login" class="font-weight-bold text-primary ml-1" style="text-decoration: none;">Giriş Yap</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+
+	<script>
+		document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+			var fileName = e.target.files[0].name;
+			document.querySelector('.file-upload-text').textContent = fileName;
+			document.querySelector('.file-upload-text').style.color = "#333";
+		});
+
+	</script>
+
 </body>
 </html>

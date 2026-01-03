@@ -12,9 +12,16 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFMenuTable : GenericRepository<MenuTable>, IMenuTables
     {
+
+        private readonly DBContext c;
+
+        public EFMenuTable(DBContext c): base (c)
+        {
+            this.c = c;
+        }
+
         public MenuTable GetMenuMasaName(string masano)
         {
-            using var c = new DBContext();
 
             var entity = c.MenuTables.Where(n => n.Name == masano).FirstOrDefault();
 
@@ -23,11 +30,33 @@ namespace DataAccessLayer.EntityFramework
 
         public int MenuTableCount()
         {
-            using var c = new DBContext();
 
             var entity = c.MenuTables.Where(N=>N.Status==true).Count();
 
             return entity;
+        }
+
+        public void UpdateFalse(int id)
+        {
+
+            var entity = c.MenuTables.Where(n => n.MenuTableID == id).FirstOrDefault();
+
+            entity.Status = false;
+
+            c.MenuTables.Update(entity);
+
+            c.SaveChanges();
+        }
+
+        public void UpdateTrue(int id)
+        {
+            var entity = c.MenuTables.Where(n => n.MenuTableID == id).FirstOrDefault();
+
+            entity.Status = true;
+
+            c.MenuTables.Update(entity);
+
+            c.SaveChanges();
         }
     }
 }

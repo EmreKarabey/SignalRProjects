@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -12,16 +13,19 @@ namespace SignalRApiProject.Controllers
     {
         private readonly IAboutServices _aboutServices;
 
-        public AboutController(IAboutServices aboutServices)
+        private readonly IMapper _mapper;
+
+        public AboutController(IAboutServices aboutServices, IMapper mapper)
         {
             _aboutServices = aboutServices;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult AboutList()
         {
             var list = _aboutServices.GetList();
 
-            return Ok(list);
+            return Ok(_mapper.Map<List<AboutListDto>>(list));
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
@@ -30,7 +34,7 @@ namespace SignalRApiProject.Controllers
 
             if (entity == null) return NotFound();
 
-            return Ok(entity);
+            return Ok(_mapper.Map<AboutListDto>(entity));
         }
 
 
@@ -39,12 +43,6 @@ namespace SignalRApiProject.Controllers
         public async Task<IActionResult> AddAbout([FromForm] AddAboutDto addAbout)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
-
-            var about = new About
-            {
-                Title = addAbout.Title,
-                Description = addAbout.Description,
-            };
 
             if (addAbout.Image != null)
             {
@@ -60,14 +58,13 @@ namespace SignalRApiProject.Controllers
                 {
                     await addAbout.Image.CopyToAsync(stream);
                 }
-                ;
+                addAbout.ImageURL = imagename;
 
-                about.ImageURL = imagename;
+
             }
+            var values = _mapper.Map<About>(addAbout);
+            _aboutServices.Add(values);
 
-
-
-            _aboutServices.Add(about);
             return Ok("Başarılı Bir Şekilde Eklenildi");
 
         }
@@ -86,22 +83,22 @@ namespace SignalRApiProject.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateAbout([FromForm] UpdateAboutDto updateAbout)
         {
+            var aboutid = _aboutServices.GetById(updateAbout.Id);
+            if (aboutid == null) return NotFound("Hakkımda Bulunamadı");
+
+
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
-
-            var entity = _aboutServices.GetById(updateAbout.Id);
-
-            if (entity == null) return NotFound();
-
-            entity.AboutID = updateAbout.Id;
-
-            entity.Title = updateAbout.Title;
-
-            entity.Description = updateAbout.Description;
 
             if (updateAbout.Image == null)
             {
-                _aboutServices.Update(entity);
-                return Ok("Başarılı Bir Şekilde Güncellenildi");
+                aboutid.AboutID = updateAbout.Id;
+                aboutid.Title = updateAbout.Title;
+                aboutid.Description = updateAbout.Description;
+
+                _mapper.Map(updateAbout, aboutid);
+
+                _aboutServices.Update(aboutid);
+                return Ok("Başarılı Bir Şekilde Güncellendi");
             }
             var Resource = Directory.GetCurrentDirectory();
 
@@ -116,20 +113,27 @@ namespace SignalRApiProject.Controllers
                 await updateAbout.Image.CopyToAsync(stream);
             }
             ;
-            entity.ImageURL = imagename;
 
-            _aboutServices.Update(entity);
+            aboutid.AboutID = updateAbout.Id;
+            aboutid.ImageURL = imagename;
+            aboutid.Title = updateAbout.Title;
+            aboutid.Description = updateAbout.Description;
+
+             _mapper.Map(updateAbout, aboutid);
+
+            _aboutServices.Update(aboutid);
 
             return Ok("Başarılı Bir Şekilde Güncellenildi");
         }
 
-      
+
 
         public record AddAboutDto
         {
             [Required(ErrorMessage = "Lütfen Başlık Girin")] public string? Title { get; set; }
             [Required(ErrorMessage = "Lütfen Açıklama Girin")] public string? Description { get; set; }
             public IFormFile? Image { get; set; }
+            public string? ImageURL { get; set; }
         }
 
         public record UpdateAboutDto
@@ -138,6 +142,13 @@ namespace SignalRApiProject.Controllers
             [Required(ErrorMessage = "Lütfen Başlık Girin")] public string? Title { get; set; }
             [Required(ErrorMessage = "Lütfen Açıklama Girin")] public string? Description { get; set; }
             public IFormFile? Image { get; set; }
+        }
+
+        public record AboutListDto
+        {
+            public int Id { get; set; }
+            public string? Title { get; set; }
+            public string? Description { get; set; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.About;
@@ -7,6 +8,7 @@ using SignalRWebUI.Dtos.Categories;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Categories;
@@ -9,6 +10,7 @@ using SignalRWebUI.Dtos.Products;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private IHttpClientFactory _httpClientFactory;

@@ -12,6 +12,10 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFOrderDetails : GenericRepository<OrderDetails>, IOrderDetails
     {
-      
+        private readonly DBContext c;
+        public EFOrderDetails(DBContext c) : base(c)
+        {
+            this.c = c;
+        }
     }
 }

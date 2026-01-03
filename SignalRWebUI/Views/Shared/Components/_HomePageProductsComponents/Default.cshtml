@@ -9,12 +9,12 @@
    
 
         <ul class="filters_menu">
-            <li class="active" data-filter="*">Hepsi</li>
+            <li data-filter="*">Hepsi</li>
             @await Component.InvokeAsync("_HomePageCategoriesFiltreComponents")
         </ul>
 
         <div class="filters-content">
-            @await Component.InvokeAsync("_HomePageProductsFiltreListComponent", new { TableName = ViewBag.Name})
+            @await Component.InvokeAsync("_HomePageProductsFiltreListComponent")
         </div>
     </div>
 </section>

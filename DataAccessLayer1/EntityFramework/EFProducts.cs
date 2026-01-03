@@ -8,24 +8,35 @@ using DataAccessLayer.Context;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DataAccessLayer.EntityFramework
 {
     public class EFProducts : GenericRepository<Products>, IProducts
     {
+        private readonly DBContext c;
+
+        public EFProducts(DBContext c) : base(c)
+        {
+            this.c = c;
+        }
+
         public decimal AverageCategoriesCount(string CategoryName)
         {
-            using var c = new DBContext();
-
             var entity = c.Products.Where(N => N.Category.CategoryName == CategoryName).Average(N => N.Price);
 
             return entity;
         }
 
+        public decimal AveragePrice()
+        {
+            var averagePrice = Convert.ToDecimal(c.Products.Average(n => n.Price).ToString("0.00"));
+
+            return averagePrice;
+        }
+
         public int CategoryNameProductsCount(string CategoryName)
         {
-            using var c = new DBContext();
-
             var entity = c.Products.Where(N => N.Category.CategoryName == CategoryName).Count();
 
             return entity;
@@ -33,8 +44,6 @@ namespace DataAccessLayer.EntityFramework
 
         public string HighPriceProduct()
         {
-            using var c = new DBContext();
-
             var entity = c.Products.OrderByDescending(n => n.Price).Select(n => n.ProductsName).FirstOrDefault();
 
             return entity;
@@ -42,8 +51,6 @@ namespace DataAccessLayer.EntityFramework
 
         public Products IncludeGetById(int id)
         {
-            using var c = new DBContext();
-
             var entity = c.Products.Where(N => N.ProductsID == id).Include(N => N.Category).FirstOrDefault();
 
             return entity;
@@ -51,8 +58,6 @@ namespace DataAccessLayer.EntityFramework
 
         public string LowPriceProduct()
         {
-            using var c = new DBContext();
-
             var entity = c.Products.OrderBy(n => n.Price).Select(N => N.ProductsName).FirstOrDefault();
 
             return entity;
@@ -60,7 +65,6 @@ namespace DataAccessLayer.EntityFramework
 
         public int ProductsCount()
         {
-            using var c = new DBContext();
             var entity = c.Products.Count();
 
             return entity;
@@ -68,8 +72,6 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Products> WithCategoryList()
         {
-            using var c = new DBContext();
-
             var list = c.Products.Include(n => n.Category).ToList();
 
             return list;

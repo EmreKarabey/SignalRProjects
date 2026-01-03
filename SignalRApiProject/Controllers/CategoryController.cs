@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +12,12 @@ namespace SignalRApiProject.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryServices _categoryServices;
-        public CategoryController(ICategoryServices categoryServices)
+
+        private readonly IMapper _mapper;
+        public CategoryController(ICategoryServices categoryServices,IMapper mapper)
         {
             _categoryServices = categoryServices;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult CategoryList()
@@ -27,15 +31,11 @@ namespace SignalRApiProject.Controllers
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-            var category = new Category()
-            {
-                CategoryName = addCategoryDto.CategoryName
-            };
+            addCategoryDto.CategoryStatus = true;
 
+            var values = _mapper.Map<Category>(addCategoryDto);
 
-            category.CategoryStatus = true;
-
-            _categoryServices.Add(category);
+            _categoryServices.Add(values);
 
             return Ok("Başarılı Bir Şekilde Kategori Eklenildi");
         }
@@ -92,6 +92,7 @@ namespace SignalRApiProject.Controllers
         public record AddCategoryDto
         {
             [Required(ErrorMessage = "Lütfen Kategori Adı Girin")] public string? CategoryName { get; set; }
+            [Required(ErrorMessage = "Lütfen Kategori Adı Girin")] public bool? CategoryStatus { get; set; } = true;
         }
     }
 }

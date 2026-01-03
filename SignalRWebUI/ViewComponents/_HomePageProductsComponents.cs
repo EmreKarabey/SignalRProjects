@@ -13,9 +13,9 @@ namespace SignalRWebUI.ViewComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync(string MasaName)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.Name = MasaName;
+           
           
             var clients = _httpClientFactory.CreateClient();
 

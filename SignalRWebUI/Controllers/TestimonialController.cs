@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.About;
 using SignalRWebUI.Dtos.Products;
@@ -6,6 +7,7 @@ using SignalRWebUI.Dtos.Testimonial;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class TestimonialController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

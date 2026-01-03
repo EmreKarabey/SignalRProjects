@@ -12,10 +12,15 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFMoneyCase : GenericRepository<MoneyCase>, IMoneyCase
     {
+        private readonly DBContext c;
+
+        public EFMoneyCase(DBContext c):base (c)
+        {
+            this.c = c;
+        }
+
         public decimal SumCase()
         {
-            using var c = new DBContext();
-
             var entity = c.MoneyCases.Select(N=>N.TotalAmount).Sum();
 
             return entity;

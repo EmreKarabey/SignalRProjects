@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Categories;
@@ -8,6 +9,7 @@ using SignalRWebUI.Dtos.Discount;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class DiscountController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

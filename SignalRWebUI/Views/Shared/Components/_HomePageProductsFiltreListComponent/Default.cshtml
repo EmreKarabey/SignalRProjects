@@ -3,7 +3,7 @@
 <div class="row grid align-items-stretch">
     @foreach (var item in Model)
     {
-        <div class="col-sm-6 col-lg-4 all @item.Category.CategoryName.ToLower() mb-4">
+        <div class="col-sm-6 col-lg-4 all @item.Category.CategoryName.ToLower()">
             <div class="box h-100 d-flex flex-column" style="background-color: #222831; /* Siyah arka planı buraya sabitledim */ color: #fff;">
 
                 <div class="d-flex flex-column flex-grow-1">
@@ -21,7 +21,7 @@
                             <h6 class="mb-0">@item.Price ₺</h6>
 
                             <form method="post" asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.ProductsID" style="display:flex; align-items:center;">
-                                <input type="hidden" name="masano" value="@ViewBag.VMasaNo" placeholder="@ViewBag.VMasaNo" />
+                                <input type="hidden" value="@ViewBag.VID" name="menutable" />
                                 <input type="number" name="quantity" value="1" min="1" max="10"
                                        style="width: 50px; margin-right: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; text-align: center; color: black;" />
 

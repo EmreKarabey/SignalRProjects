@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Context
 {
-    public class DBContext:IdentityDbContext<AppUser,AppRole,int>
+    public class DBContext : IdentityDbContext<AppUser, AppRole, int>
     {
-       
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-K2BKEMA;Database=DBSignalR;Integrated Security=true;Trust Server Certificate=true");
+
         }
 
         public DbSet<About> Abouts { get; set; }

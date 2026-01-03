@@ -51,5 +51,15 @@ namespace BusinessLayer.Concrete
         {
             _menuTables.Update(t);
         }
+
+        public void UpdateFalse(int id)
+        {
+            _menuTables.UpdateFalse(id);
+        }
+
+        public void UpdateTrue(int id)
+        {
+            _menuTables.UpdateTrue(id);
+        }
     }
 }

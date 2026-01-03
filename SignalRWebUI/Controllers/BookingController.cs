@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Booking;
@@ -9,6 +10,7 @@ using SignalRWebUI.Dtos.Category;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     [IgnoreAntiforgeryToken] // <-- B
     public class BookingController : Controller
     {

@@ -12,10 +12,16 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFBooking : GenericRepository<Booking>, IBooking
     {
+
+        private readonly DBContext c;
+
+        public EFBooking(DBContext c):base(c)
+        {
+            this.c = c;
+        }
+
         public void ChangeCancel(Booking booking)
         {
-            using var c = new DBContext();
-
             var entity = c.Bookings.Where(n => n.BookingID == booking.BookingID).FirstOrDefault();
 
             if (entity != null)
@@ -30,8 +36,6 @@ namespace DataAccessLayer.EntityFramework
 
         public void ChangeSuccess(Booking booking)
         {
-            using var c = new DBContext();
-
             var entity = c.Bookings.Where(n => n.BookingID == booking.BookingID).FirstOrDefault();
 
             if (entity != null)

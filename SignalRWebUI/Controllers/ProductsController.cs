@@ -1,12 +1,14 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Products;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -13,9 +13,9 @@ namespace SignalRWebUI.ViewComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync(string TableName)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.VMasaNo = TableName;
+         
             var client = _httpClientFactory.CreateClient();
 
             var resposemessage = await client.GetAsync("https://localhost:7042/api/Products");
@@ -25,6 +25,7 @@ namespace SignalRWebUI.ViewComponents
                 var jsonfile = await resposemessage.Content.ReadAsStringAsync();
 
                 var file = JsonConvert.DeserializeObject<List<ProductsListDto>>(jsonfile);
+
 
 
                 return View(file);

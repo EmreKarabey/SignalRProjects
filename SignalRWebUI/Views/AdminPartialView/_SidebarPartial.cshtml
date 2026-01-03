@@ -1,84 +1,91 @@
 ﻿<div class="sidebar">
 	<div class="scrollbar-inner sidebar-wrapper">
-		<div class="user">
-			<div class="photo">
-				<img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile.jpg">
-			</div>
-			<div class="info">
-				<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-					<span>
-						Hizrian
-						<span class="user-level">Administrator</span>
-						<span class="caret"></span>
-					</span>
-				</a>
-				<div class="clearfix"></div>
-
-				<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
-					<ul class="nav">
-						<li>
-							<a href="#profile">
-								<span class="link-collapse">My Profile</span>
-							</a>
-						</li>
-						<li>
-							<a href="#edit">
-								<span class="link-collapse">Edit Profile</span>
-							</a>
-						</li>
-						<li>
-							<a href="#settings">
-								<span class="link-collapse">Settings</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<ul class="nav">
-			<li class="nav-item active">
-				<a href="index.html">
-					<i class="la la-dashboard"></i>
-					<p>Dashboard</p>
-					<span class="badge badge-count">5</span>
-				</a>
-			</li>
+
+			@await Component.InvokeAsync("_AdminPageUserComponents");
+		
+
 			<li class="nav-item">
-				<a href="components.html">
-					<i class="la la-table"></i>
-					<p>Components</p>
-					<span class="badge badge-count">14</span>
+				<a href="/QrCode/Index">
+					<i class="la la-qrcode"></i>
+					<p>QR Code İşlemleri</p>
+
 				</a>
 			</li>
+
 			<li class="nav-item">
-				<a href="forms.html">
-					<i class="la la-keyboard-o"></i>
-					<p>Forms</p>
-					<span class="badge badge-count">50</span>
+				<a href="/Products/ProductsList">
+					<i class="la la-codepen"></i>
+					<p>Ürünler</p>
+
 				</a>
 			</li>
+
 			<li class="nav-item">
-				<a href="tables.html">
-					<i class="la la-th"></i>
-					<p>Tables</p>
-					<span class="badge badge-count">6</span>
+				<a href="/Category/CategoryList">
+					<i class="la la-sitemap"></i>
+					<p>Kategori İşlemleri</p>
+
 				</a>
 			</li>
+
 			<li class="nav-item">
-				<a href="notifications.html">
-					<i class="la la-bell"></i>
-					<p>Notifications</p>
-					<span class="badge badge-success">3</span>
+				<a href="/Contact/ContactList">
+					<i class="la la-phone-square"></i>
+					<p>İletişim</p>
+
 				</a>
 			</li>
-			
+
 			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-fonticons"></i>
-					<p>Icons</p>
+				<a href="/Testimonial/TestimonialList">
+					<i class="la la-comments"></i>
+					<p>Yorumlar</p>
+
 				</a>
 			</li>
-			
+
+			<li class="nav-item">
+				<a href="/Discount/DiscountList">
+					<i class="la la-tag"></i>
+					<p>İndirimler</p>
+
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/Feature/FeatureList">
+					<i class="la la-repeat"></i>
+					<p>Öne Çıkanlar</p>
+
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/MenuTable/TableOccupancyRate">
+					<i class="la la-tablet"></i>
+					<p>Masalar</p>
+
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/Notification/Index">
+					<i class="la la-envelope"></i>
+					<p>Bildirim İşlemleri</p>
+
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/SocialMedia/SocialMediaList">
+					<i class="la la-mobile"></i>
+					<p>Sosyal Medya İşlemleri</p>
+
+				</a>
+			</li>
+
+
 		</ul>
 	</div>
 </div>

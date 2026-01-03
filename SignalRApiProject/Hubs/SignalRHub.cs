@@ -19,7 +19,7 @@ namespace SignalRApiProject.Hubs
         private readonly INotificationServices _notificationServices;
         public static int clientcount { get; set; } = 0;
 
-        public SignalRHub(ICategoryServices categoryServices, IProductsServices productsServices, IOrderService orderService, IMoneyCaseService moneyCaseService, IMenuTablesServices menuTablesServices,IBookingServices bookingServices,INotificationServices notificationServices)
+        public SignalRHub(ICategoryServices categoryServices, IProductsServices productsServices, IOrderService orderService, IMoneyCaseService moneyCaseService, IMenuTablesServices menuTablesServices, IBookingServices bookingServices, INotificationServices notificationServices)
         {
             _categoryServices = categoryServices;
             _productsServices = productsServices;
@@ -60,6 +60,9 @@ namespace SignalRApiProject.Hubs
 
             var values9 = _bookingServices.GetList();
             await Clients.All.SendAsync("BookingList", values9);
+
+            var values10 = _orderService.OrderCount();
+            await Clients.All.SendAsync("OrderCount",values10);
         }
 
 
@@ -85,28 +88,31 @@ namespace SignalRApiProject.Hubs
         public async Task Notification()
         {
             var values = _notificationServices.NotificationCount();
-            await Clients.All.SendAsync("NotificationCounts",values);
+            await Clients.All.SendAsync("NotificationCounts", values);
 
-            var values2 = _notificationServices.GetList();
-            await Clients.All.SendAsync("NotificatonList",values2);
+            var values2 = _notificationServices.GetList().Where(n=>n.Status==false);
+            await Clients.All.SendAsync("NotificatonList", values2);
         }
 
         public async Task MenuTablesList()
         {
             var values = _menuTablesServices.GetList();
-            await Clients.All.SendAsync("MenuTablesList0",values);
+            await Clients.All.SendAsync("MenuTablesList0", values);
+
+            var values2 = _menuTablesServices.MenuTableCount();
+            await Clients.All.SendAsync("MenuTableCount", values2);
         }
 
         public async Task ClientsMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ClientMessage00",user,message);
+            await Clients.All.SendAsync("ClientMessage00", user, message);
         }
 
         public async override Task OnConnectedAsync()
         {
             clientcount++;
 
-            await Clients.All.SendAsync("ReceiveClientsCount",clientcount);
+            await Clients.All.SendAsync("ReceiveClientsCount", clientcount);
 
             await base.OnConnectedAsync();
         }
@@ -115,9 +121,22 @@ namespace SignalRApiProject.Hubs
         {
             clientcount--;
 
-            await Clients.All.SendAsync("ReceiveClientsCount",clientcount);
+            await Clients.All.SendAsync("ReceiveClientsCount", clientcount);
 
             await base.OnDisconnectedAsync(exception);
+        }
+
+        public async Task ProductTransactions()
+        {
+            var values = _productsServices.AveragePrice();
+
+            await Clients.All.SendAsync("AverageProduct",values);
+        }
+        public async Task CategoriesTransactions()
+        {
+            var values = _categoryServices.CategoryCount();
+
+            await Clients.All.SendAsync("CategoryCount",values);
         }
     }
 }

@@ -26,8 +26,8 @@ namespace SignalRApiProject.Controllers
             _signInManager = signInManager;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ApiMessageResponse>> Register([FromBody] Addregister addregister)
+        [HttpPost("Register")]
+        public async Task<ActionResult<ApiMessageResponse>> Register([FromForm] Addregister addregister)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
@@ -38,8 +38,26 @@ namespace SignalRApiProject.Controllers
                 Name = addregister.Name,
                 Surname = addregister.Surname,
                 Email = addregister.Mail,
-                UserName = addregister.UserName
+                UserName = addregister.UserName,
+                CreateAt = DateTime.Now,
+                PhoneNumber = addregister.PhoneNumber
             };
+
+            var resource = Directory.GetCurrentDirectory();
+
+            var extension = Path.GetExtension(addregister.Image.FileName);
+
+            var imagename = Guid.NewGuid() + extension;
+
+            var savelocation = resource + "/Image/UserImage/" + imagename;
+
+            var stream = new FileStream(savelocation, FileMode.Create);
+
+            await addregister.Image.CopyToAsync(stream);
+
+            addregister.ImageURL = imagename;
+
+            appuser.ImageURL = addregister.ImageURL;
 
             var responsemessage = await _usermanager.CreateAsync(appuser, addregister.Password);
 
@@ -53,11 +71,11 @@ namespace SignalRApiProject.Controllers
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-            var user = await _usermanager.FindByEmailAsync(login.Mail);
+            var user = await _usermanager.FindByEmailAsync(login.Email);
 
             if (user == null) return Conflict(new ApiMessageResponse("Kayıtlı Kullanıcı Bulunamadı"));
 
-            var responsemessage = await _signInManager.CheckPasswordSignInAsync(user, login.Password, lockoutOnFailure: true);
+            var responsemessage = await _signInManager.PasswordSignInAsync(user, login.Password, login.RememberMe, true);
 
             if (!responsemessage.Succeeded) return Conflict(new ApiMessageResponse("Giriş Yapılamadı. Lütfen Şifrenizi Kontrol Ediniz"));
             return Ok(new
@@ -86,11 +104,32 @@ namespace SignalRApiProject.Controllers
 
             var user = await _usermanager.FindByEmailAsync(updateUser.EMail);
 
+            if (user == null) return Ok(new ApiMessageResponse("Kullanıcı Bulunamadı"));
+
             user.Name = updateUser.Name;
             user.Surname = updateUser.Surname;
             user.UserName = updateUser.UserName;
             user.Email = updateUser.EMail;
 
+
+
+            if (updateUser.Image != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+
+                var extension = Path.GetExtension(updateUser.Image.FileName);
+
+                var imagename = Guid.NewGuid() + extension;
+
+                var savelocation = resource + "/Image/UserImage/" + imagename;
+
+                var stream = new FileStream(savelocation, FileMode.Create);
+
+                await updateUser.Image.CopyToAsync(stream);
+
+                updateUser.ImageURL = imagename;
+                user.ImageURL = updateUser.ImageURL;
+            }
 
             if (updateUser.Password != null) user.PasswordHash = _usermanager.PasswordHasher.HashPassword(user, updateUser.Password);
 
@@ -102,15 +141,27 @@ namespace SignalRApiProject.Controllers
 
         }
 
+        [HttpGet("LogOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok(new ApiMessageResponse("Başarıyla çıkış yapıldı"));
+        }
+
 
         public record Addregister
         {
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen İsim Giriniz")] public string Name { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Soyisim Giriniz")] public string Surname { get; set; }
+            [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Telefon Numarası Giriniz")] public string PhoneNumber { get; set; }
+
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Mail Giriniz")] public string Mail { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Kullanıcı Adı Giriniz")] public string UserName { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Şifre Giriniz"), MinLength(6, ErrorMessage = "Lütfen En Az 6 Karakter Giriniz")] public string Password { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Şifre Tekrardan Giriniz"), MinLength(6, ErrorMessage = "Lütfen En Az 6 Karakter Giriniz"), Compare("Password", ErrorMessage = "Lütfen Aynı Şifreyi Tekrar Girin")] public string ConfirmPassword { get; set; }
+            public string? ImageURL { get; set; }
+            public IFormFile? Image { get; set; }
+            public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         }
 
@@ -121,16 +172,19 @@ namespace SignalRApiProject.Controllers
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Soyisim Giriniz")] public string Surname { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Mail Giriniz")] public string EMail { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Kullanıcı Adı Giriniz")] public string UserName { get; set; }
-             public string? Password { get; set; }
+            public string? Password { get; set; }
             [Compare("Password", ErrorMessage = "Lütfen Aynı Şifreyi Tekrar Girin")] public string? ConfirmPassword { get; set; }
 
-
+            public string? ImageURL { get; set; }
+            public IFormFile? Image { get; set; }
         }
 
         public record LoginDto
         {
-            [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Kullanıcı Adı Giriniz")] public string Mail { get; set; }
+            [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Mail Giriniz")] public string Email { get; set; }
             [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lütfen Şifre Giriniz")] public string Password { get; set; }
+
+            public bool RememberMe { get; set; }
         }
 
         public record ApiMessageResponse(string Message);

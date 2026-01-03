@@ -1,76 +1,97 @@
 using DataAccessLayer.Context;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SignalRWebUI.ValidationRule;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(opts =>
-    {
-        opts.LoginPath = "/Login/Index"; // Giriþ yapmamýþ kullanýcýyý atacaðý yer
-        opts.LogoutPath = "/Login/LogOut";
-        opts.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Çerez süresi
-        opts.Cookie.Name = "SignalRWebUICookie"; // Çereze bir isim ver
-        opts.SlidingExpiration = true; // Kullanýcý iþlem yaptýkça süreyi uzat
-    });
 
-builder.Services.AddDbContext<DBContext>();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<SendMessageRule>();
 
 
-//SignalR çalýþmasý için yapýlan Cors Politikalarý
+builder.Services.AddDbContext<DBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+çÇðÐýÝöÖþÞüÜ";
+    opt.Password.RequireDigit = false;
+    opt.Password.RequiredLength = 6;
+    opt.Password.RequireLowercase = false;
+    opt.Password.RequireUppercase = false;
+    opt.Password.RequireNonAlphanumeric = false;
+})
+.AddEntityFrameworkStores<DBContext>();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; 
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+{
+    opt.LoginPath = "/Auth/Login";
+    opt.LogoutPath = "/Auth/Logout";
+    opt.AccessDeniedPath = "/Error/AccessDenied";
+    opt.SlidingExpiration = true;
+    opt.Cookie.HttpOnly = true;
+    opt.Cookie.Name = "SignalRWebUI.Cookie"; 
+});
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", builder =>
     {
-        //Ýstemciden (client) gelen HTTP isteklerinde Content-Type, Authorization vb. her türlü baþlýða (header) izin verilir.
         builder.AllowAnyHeader()
-
-        //GET, POST, PUT, DELETE, PATCH gibi tüm HTTP metotlarýna izin verilir.
-        .AllowAnyMethod()
-
-        //Bu kod, gelen Host adresi ne olursa olsun true(doðru) döndürerek dünyadaki tüm kaynaklardan(origin) gelen isteklere kapýyý açar.
-        .SetIsOriginAllowed((Host) => true)
-
-        // Tarayýcýnýn sunucuya kimlik bilgileri(Cookies, Authorization headerlarý veya TLS client sertifikalarý) göndermesine izin verir.
-        .AllowCredentials();
+               .AllowAnyMethod()
+               .SetIsOriginAllowed((Host) => true)
+               .AllowCredentials();
     });
 });
 
 builder.Services.AddHttpClient();
-
 builder.Services.AddSignalR();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/Error/ErrorPage", "?code={0}");
 
-app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseRouting();
+
+app.UseSession();
+
 app.UseCors("CorsPolicy");
 
-app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 
-
-
 app.MapControllerRoute(
-    name: "login",
-    pattern: "{controller=Auth}/{action=Login}/{id?}");
+    name: "default",
+    pattern: "{controller=HomePage}/{action=Index}/{id?}");
 
 app.Run();

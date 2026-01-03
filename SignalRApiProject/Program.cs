@@ -8,11 +8,22 @@ using SignalRApiProject.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<DBContext>();
-builder.Services.AddIdentity<AppUser, AppRole>()
-    .AddEntityFrameworkStores<DBContext>()
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+çÇðÐýÝöÖþÞüÜ";
+}).AddEntityFrameworkStores<DBContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddDbContext<DBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 builder.Services.AddControllers();
+
+
+builder.Services.AddAutoMapper(typeof(Program));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,6 +46,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseRouting();
+
+app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Image")),
+    RequestPath = "/Image"
+});
+
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
 app.UseHttpsRedirection();

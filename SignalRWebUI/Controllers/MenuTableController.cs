@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Categories;
@@ -7,6 +8,7 @@ using SignalRWebUI.Dtos.MenuTable;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class MenuTableController : Controller
     {
         private IHttpClientFactory _httpClientFactory;

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Contact;
@@ -7,6 +8,7 @@ using SignalRWebUI.Dtos.Notification;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class NotificationController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -55,7 +57,7 @@ namespace SignalRWebUI.Controllers
 
             var stringcontent = new StringContent(jsonfile,Encoding.UTF8,"application/json");
 
-            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Notification",stringcontent);
+            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Notification/UpdateRead", stringcontent);
 
             if (!responsemessage2.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
 
@@ -77,7 +79,7 @@ namespace SignalRWebUI.Controllers
 
             var stringcontent = new StringContent(jsonfile, Encoding.UTF8, "application/json");
 
-            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Notification", stringcontent);
+            var responsemessage2 = await client.PutAsync("https://localhost:7042/api/Notification/UpdateNotRead", stringcontent);
 
             if (!responsemessage2.IsSuccessStatusCode) return RedirectToAction("ErrorPage", "Error");
 

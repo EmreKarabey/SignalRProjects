@@ -14,18 +14,23 @@
                     <form asp-controller="HomePage" asp-action="SendMessageIA">
                         <div>
                             <input type="text"asp-for="Name" class="form-control" placeholder="Adınız" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div>
                             <input type="email" asp-for="Mail" class="form-control" placeholder="Mailiniz" />
+                            <span asp-validation-for="Mail" class="text-danger"></span>
                         </div>
                         <div>
                             <input type="text"asp-for="Phone" class="form-control" placeholder="Telefon Numranız" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                         <div>
                             <input type="text" asp-for="Subject" class="form-control" placeholder="Konu" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
                         <div>
                             <input type="text" asp-for="MessageContent" class="form-control" placeholder="Mesaj Detayı" />
+                            <span asp-validation-for="MessageContent" class="text-danger"></span>
                         </div>
                        
                         <div class="btn_box">
@@ -38,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <div class="map_container ">
-                    <div id="googleMap"></div>
+                    @Html.Raw(@ViewBag.Map)
                 </div>
             </div>
         </div>

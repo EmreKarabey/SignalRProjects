@@ -25,7 +25,7 @@ namespace SignalRApiProject.Controllers
         [HttpGet]
         public IActionResult GetList()
         {
-            var list = _notificationServices.GetList().Where(N => N.Status == false);
+            var list = _notificationServices.GetList();
 
             return Ok(list);
         }
@@ -63,10 +63,10 @@ namespace SignalRApiProject.Controllers
             return Ok("Başarılı Bir Şekilde Güncellendi");
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateNotRead(int id)
+        [HttpPut("UpdateNotRead")]
+        public IActionResult UpdateNotRead(UpdateNotification updateNotification)
         {
-            var entity = _notificationServices.GetById(id);
+            var entity = _notificationServices.GetById(updateNotification.NotificationID);
 
             if (entity == null) return NotFound();
 

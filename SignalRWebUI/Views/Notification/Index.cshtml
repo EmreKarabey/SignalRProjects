@@ -36,8 +36,8 @@
 									<span class="badge bg-success">Okundu</span>
 								</td>
 								<td>
-									<form asp-action="UpdateRead" asp-controller="Notification" asp-route-id="@item.NotificationID" method="post">
-										<button href="/Category/UpdateCategory/@item" class="btn btn-outline-primary">Okunmadı Olarak İşaretle</button>
+									<form asp-action="UpdateNotRead" asp-controller="Notification" asp-route-id="@item.NotificationID" method="post">
+										<button type="submit" class="btn btn-outline-primary">Okunmadı Olarak İşaretle</button>
 									</form>
 								</td>
 								
@@ -61,7 +61,7 @@
 					}
 				</tbody>
 			</table>
-			<a href="/Category/AddCategory" class="btn btn-outline-warning">Kategori Ekle</a>
+			
 		</div>
 	</div>
 </div>

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Booking;
@@ -7,6 +8,7 @@ using SignalRWebUI.Dtos.Feature;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class FeatureController : Controller
     {
         public IHttpClientFactory _httpClientFactory;

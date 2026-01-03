@@ -18,5 +18,7 @@ namespace DataAccessLayer.Abstract
 
         public string LowPriceProduct();
         public string HighPriceProduct();
+
+        public decimal AveragePrice();
     }
 }

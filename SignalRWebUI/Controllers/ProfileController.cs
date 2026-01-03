@@ -1,12 +1,14 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.AppUser;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

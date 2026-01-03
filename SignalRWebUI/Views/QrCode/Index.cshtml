@@ -1,51 +1,82 @@
 ﻿@{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "QR Kod İşlemleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="col-md-12">
-	<div class="card">
-		<div class="card-header">
-			<div class="card-title">QrCode İşlemleri</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<form method="post">
+    <div class="card shadow-sm border-0">
+        <div class="card-header">
+            <h4 class="card-title font-weight-bold">
+                <i class="la la-qrcode text-primary mr-2"></i>QR Kod Yönetimi
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
 
-					<div class="form-group">
-						<label for="text">Girmek İstediğiniz Değer</label>
-						<br />
-						<input type="text" class="form-control" name="value"  placeholder="Değer Girin">
-						<br />
-						<button type="submit" class="btn btn-primary">Qr Kod Oluştur</button>
-					</div>
-					
+                <div class="col-md-6" style="border-right: 1px solid #eee;">
+                    <h5 class="sub-title text-primary mb-4"><i class="la la-plus-circle"></i> Yeni QR Kod Oluştur</h5>
 
-					@if (ViewBag.QrCodeImage != null)
-					{
-						<img src="@ViewBag.QrCodeImage" alt="" style="width:400px;height:400px" />
-					}
-				</form>
-			</div>
+                    <form method="post">
+                        <div class="form-group">
+                            <label class="font-weight-bold">İçerik Metni / URL</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="la la-keyboard-o"></i></span>
+                                </div>
+                                <input type="text" class="form-control" name="value" placeholder="www.google.com veya Masa 5" required>
+                            </div>
+                            <small class="form-text text-muted mb-3">QR kodunu oluşturmak istediğiniz metni veya linki giriniz.</small>
 
-			<div class="col-md-6">
-				<form method="post" asp-controller="QrCode" asp-action="QrCodeReader" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="la la-check-circle"></i> QR Kod Oluştur
+                            </button>
+                        </div>
 
-					<div class="form-group">
-						<label for="text">Dosya Seçin</label>
-						<br />
-						<input type="file" class="form-control"  name="file">
-						<br />
-						<button type="submit" class="btn btn-primary">Qr Kodu Oku</button>
-						<br />
-						<br />
-						<input class="form-control" type="text" placeholder="@ViewBag.VSuccess" />
-					</div>
+                        @if (ViewBag.QrCodeImage != null)
+                        {
+                            <div class="text-center mt-4 p-3 border rounded bg-light">
+                                <p class="font-weight-bold text-success">QR Kodunuz Hazır!</p>
+                                <img src="@ViewBag.QrCodeImage" alt="QR Code" class="img-fluid shadow-sm" style="max-width: 250px; border: 5px solid white;" />
+                            </div>
+                        }
+                    </form>
+                </div>
 
-					
-					
-				</form>
-			</div>
-		</div>
-	</div>
+                <div class="col-md-6">
+                    <h5 class="sub-title text-success mb-4"><i class="la la-camera"></i> QR Kod Çözümle</h5>
+
+                    <form method="post" asp-controller="QrCode" asp-action="QrCodeReader" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="font-weight-bold">QR Kod Resmi Yükle</label>
+
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="customFile" name="file" required>
+                                <label class="custom-file-label" for="customFile">Dosya seçmek için tıklayın...</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="la la-search"></i> QR Kodu Oku
+                            </button>
+                        </div>
+
+                        @if (ViewBag.VSuccess != null)
+                        {
+                            <div class="alert alert-info mt-4" role="alert">
+                                <h6 class="alert-heading font-weight-bold"><i class="la la-info-circle"></i> Çözümlenen Değer:</h6>
+                                <hr>
+                                <p class="mb-0" style="font-size: 16px;">@ViewBag.VSuccess</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-light mt-4 text-muted border border-light" role="alert">
+                                <small><i class="la la-info"></i> Çözümlenen QR kod içeriği burada görünecektir.</small>
+                            </div>
+                        }
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

@@ -27,6 +27,11 @@ namespace BusinessLayer.Concrete
             return _products.AverageCategoriesCount(CategoryName);
         }
 
+        public decimal AveragePrice()
+        {
+            return _products.AveragePrice();
+        }
+
         public int CategoryNameProductsCount(string CategoryName)
         {
             var entity = _products.CategoryNameProductsCount(CategoryName);

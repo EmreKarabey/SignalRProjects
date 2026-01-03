@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.Basket;
@@ -10,6 +11,7 @@ using SignalRWebUI.Dtos.Products;
 
 namespace SignalRWebUI.Controllers
 {
+    [Authorize]
     public class BasketController : Controller
     {
         public IHttpClientFactory _httpClientFactory;
@@ -36,27 +38,9 @@ namespace SignalRWebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBasket(int id, int quantity, string masano)
+        public async Task<IActionResult> AddBasket(int id, int quantity,int menutable)
         {
-
-
-
             var clients = _httpClientFactory.CreateClient();
-
-
-            if (masano == null) RedirectToAction("ErrorPage", "Error");
-
-            var responsemessage3 = await clients.GetAsync($"https://localhost:7042/api/MenuTables/{masano}");
-
-            if (!responsemessage3.IsSuccessStatusCode) return RedirectToAction();
-
-            var jsonfile3 = await responsemessage3.Content.ReadAsStringAsync();
-
-            var file3 = JsonConvert.DeserializeObject<MenuTableList>(jsonfile3);
-
-            if (file3.Status == false) return RedirectToAction("ErrorPage", "Error");
-
-
             var responsemessage = await clients.GetAsync($"https://localhost:7042/api/Products/{id}");
 
             if (responsemessage.IsSuccessStatusCode)
@@ -69,7 +53,7 @@ namespace SignalRWebUI.Controllers
                 {
                     Count = quantity,
                     UnitPrice = file.Price,
-                    MenuTableID = file3.MenuTableID,
+                    MenuTableID = menutable,
                     ProductsID = file.ProductsID,
                     TotalPrice = file.Price * quantity
 
@@ -83,7 +67,7 @@ namespace SignalRWebUI.Controllers
                 if (responsemessage2.IsSuccessStatusCode)
                 {
                     var responsemsaage = await responsemessage2.Content.ReadAsStringAsync();
-                    return RedirectToAction("BasketList", new { id = file3.MenuTableID });
+                    return RedirectToAction("BasketList", new { id = menutable });
                 }
             }
 
