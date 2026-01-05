@@ -114,7 +114,7 @@ namespace SignalRWebUI.Controllers
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
                 HttpContext.Session.SetInt32("UserId", user.Id);
-                return RedirectToAction("TestimonialList", "Testimonial");
+                return RedirectToAction("Index", "QrCode");
             }
 
             return RedirectToAction("ErrorPage", "Error");

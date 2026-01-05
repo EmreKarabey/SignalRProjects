@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
-using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,7 +10,7 @@ using SignalRWebUI.Dtos.Products;
 
 namespace SignalRWebUI.Controllers
 {
-    [Authorize]
+
     public class BasketController : Controller
     {
         public IHttpClientFactory _httpClientFactory;
@@ -38,7 +37,7 @@ namespace SignalRWebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBasket(int id, int quantity,int menutable)
+        public async Task<IActionResult> AddBasket(int id, int quantity, int menutable)
         {
             var clients = _httpClientFactory.CreateClient();
             var responsemessage = await clients.GetAsync($"https://localhost:7042/api/Products/{id}");
@@ -58,6 +57,10 @@ namespace SignalRWebUI.Controllers
                     TotalPrice = file.Price * quantity
 
                 };
+                
+                HttpContext.Session.SetInt32("menutable", menutable);
+
+                ViewBag.MenuTable = menutable;
                 var jsonfile2 = JsonConvert.SerializeObject(addbasket);
 
                 var stringcontent = new StringContent(jsonfile2, Encoding.UTF8, "application/json");
@@ -72,8 +75,6 @@ namespace SignalRWebUI.Controllers
             }
 
             return View();
-
-
         }
 
         public async Task<IActionResult> DeleteBasket(int id)
@@ -87,6 +88,41 @@ namespace SignalRWebUI.Controllers
                 return RedirectToAction("BasketList");
             }
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateMenuTable()
+        {
+            var menutableid = HttpContext.Session.GetInt32("menutable");
+            var clients = _httpClientFactory.CreateClient();
+
+            var responsemessage = await clients.GetAsync($"https://localhost:7042/api/MenuTables/{menutableid}");
+
+            if (responsemessage.IsSuccessStatusCode)
+            {
+                var jsonfile = await responsemessage.Content.ReadAsStringAsync();
+
+                var file = JsonConvert.DeserializeObject<MenuTableList>(jsonfile);
+
+                file.Status = true;
+
+                var jsonfile2 = JsonConvert.SerializeObject(file);
+
+                var stringContent = new StringContent(jsonfile2, Encoding.UTF8, "application/json");
+
+                var responsemessage2 = await clients.PutAsync($"https://localhost:7042/api/MenuTables/", stringContent);
+
+                if (responsemessage2.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Başarılı";
+                    return RedirectToAction("Index", "CustomerTab");
+
+                }
+
+                return View();
+            }
+            return View();
+
         }
 
     }

@@ -24,9 +24,11 @@ namespace SignalRWebUI.Controllers
 
             QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
 
-            QRCodeGenerator.QRCode qRCode = qRCodeGenerator.CreateQrCode(value, QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qRCodeGenerator.CreateQrCode(value, QRCodeGenerator.ECCLevel.Q);
 
-            using (Bitmap image = qRCode.GetGraphic(10))
+            QRCode qrCode = new QRCode(qrCodeData);
+
+            using (Bitmap image = qrCode.GetGraphic(10))
             {
                 image.Save(memoryStream,ImageFormat.Png);
 
