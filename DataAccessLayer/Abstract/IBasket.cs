@@ -10,6 +10,7 @@ namespace DataAccessLayer.Abstract
     public interface IBasket:IGeneric<Basket>
     {
         public List<Basket> GetMenuTableBasket(int id);
+        public void DeleteBasketList(List<Basket> baskets);
        
 
 

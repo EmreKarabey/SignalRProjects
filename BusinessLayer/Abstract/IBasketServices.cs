@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IBasketServices:IGenericServices<Basket>
     {
         public List<Basket> GetMenuTableBasket(int id);
+
+        public void DeleteBasketList(List<Basket> baskets);
     }
 }

@@ -3,20 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\qrcode\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\qrcode\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\basket\\basketlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\basket\\basketlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A47F2AF0-E9CF-4117-8C13-FD0EDFB7C8C4}|SignalRApiProject\\SignalRApiProject.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrapiproject\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47F2AF0-E9CF-4117-8C13-FD0EDFB7C8C4}|SignalRApiProject\\SignalRApiProject.csproj|solutionrelative:signalrapiproject\\controllers\\basketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0239C9A6-B7D7-D33F-C2D5-F469C95A9F18}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\businesslayer\\concrete\\basketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0239C9A6-B7D7-D33F-C2D5-F469C95A9F18}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\concrete\\basketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\testimonialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\testimonialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0239C9A6-B7D7-D33F-C2D5-F469C95A9F18}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\businesslayer\\abstract\\ibasketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0239C9A6-B7D7-D33F-C2D5-F469C95A9F18}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\abstract\\ibasketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9FCCEB3-DD88-F8C0-89A3-FD31A7C54F23}|DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\dataaccesslayer\\abstract\\ibasket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9FCCEB3-DD88-F8C0-89A3-FD31A7C54F23}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\abstract\\ibasket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9FCCEB3-DD88-F8C0-89A3-FD31A7C54F23}|DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\dataaccesslayer\\entityframework\\efbasket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9FCCEB3-DD88-F8C0-89A3-FD31A7C54F23}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\entityframework\\efbasket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A47F2AF0-E9CF-4117-8C13-FD0EDFB7C8C4}|SignalRApiProject\\SignalRApiProject.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrapiproject\\controllers\\menutablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47F2AF0-E9CF-4117-8C13-FD0EDFB7C8C4}|SignalRApiProject\\SignalRApiProject.csproj|solutionrelative:signalrapiproject\\controllers\\menutablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\customertab\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\customertab\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\qrcode\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\qrcode\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\customertabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,14 +79,6 @@
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\webuipartialview\\_headerpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\basket\\basketlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\basket\\basketlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -71,16 +99,8 @@
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\shared\\components\\_adminnavbarpagecomponents\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\testimonialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\testimonialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\views\\staticsbar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\views\\staticsbar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\dtos\\basket\\basketslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,14 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\menutablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\menutablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\staticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\staticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\staticsbarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|solutionrelative:signalrwebui\\controllers\\staticsbarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{057A0F71-ADF4-41C4-ACFC-16E479EF0EBB}|SignalRWebUI\\SignalRWebUI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\signalrprojects\\signalrwebui\\controllers\\socialmediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -157,7 +169,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 716,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -181,20 +193,145 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TestimonialController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\TestimonialController.cs",
+              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\TestimonialController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\TestimonialController.cs",
+              "RelativeToolTip": "SignalRWebUI\\Controllers\\TestimonialController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:06:47.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SignalRWebUI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAqwGkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:25:56.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BasketController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BasketController.cs",
+              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\BasketController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BasketController.cs",
+              "RelativeToolTip": "SignalRWebUI\\Controllers\\BasketController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:06:55.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EFBasket.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\DataAccessLayer\\EntityFramework\\EFBasket.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\EntityFramework\\EFBasket.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\DataAccessLayer\\EntityFramework\\EFBasket.cs",
+              "RelativeToolTip": "DataAccessLayer\\EntityFramework\\EFBasket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:52:33.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BasketManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\BusinessLayer\\Concrete\\BasketManager.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Concrete\\BasketManager.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\BusinessLayer\\Concrete\\BasketManager.cs",
+              "RelativeToolTip": "BusinessLayer\\Concrete\\BasketManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:53:53.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BasketController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\Controllers\\BasketController.cs",
+              "RelativeDocumentMoniker": "SignalRApiProject\\Controllers\\BasketController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\Controllers\\BasketController.cs*",
+              "RelativeToolTip": "SignalRApiProject\\Controllers\\BasketController.cs*",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAUwBkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:47:52.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\QrCode\\Index.cshtml",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Views\\QrCode\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\QrCode\\Index.cshtml",
-              "RelativeToolTip": "SignalRWebUI\\Views\\QrCode\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Title": "BasketList.cshtml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
+              "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
+              "RelativeToolTip": "SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAE0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T22:06:09.201Z",
+              "WhenOpened": "2026-01-05T20:06:59.217Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "IBasket.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\DataAccessLayer\\Abstract\\IBasket.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\Abstract\\IBasket.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\DataAccessLayer\\Abstract\\IBasket.cs",
+              "RelativeToolTip": "DataAccessLayer\\Abstract\\IBasket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:50:54.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IBasketServices.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\BusinessLayer\\Abstract\\IBasketServices.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Abstract\\IBasketServices.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\BusinessLayer\\Abstract\\IBasketServices.cs",
+              "RelativeToolTip": "BusinessLayer\\Abstract\\IBasketServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:53:38.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MenuTablesController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\Controllers\\MenuTablesController.cs",
+              "RelativeDocumentMoniker": "SignalRApiProject\\Controllers\\MenuTablesController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\Controllers\\MenuTablesController.cs",
+              "RelativeToolTip": "SignalRApiProject\\Controllers\\MenuTablesController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T22:47:47.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\QrCode\\Index.cshtml",
+              "RelativeDocumentMoniker": "SignalRWebUI\\Views\\QrCode\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\QrCode\\Index.cshtml",
+              "RelativeToolTip": "SignalRWebUI\\Views\\QrCode\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-05T22:06:09.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "_HeadPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\WebUIPartialView\\_HeadPartial.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\WebUIPartialView\\_HeadPartial.cshtml",
@@ -202,12 +339,11 @@
               "RelativeToolTip": "SignalRWebUI\\Views\\WebUIPartialView\\_HeadPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T21:43:19.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:43:19.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\CustomerTab\\Index.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\CustomerTab\\Index.cshtml",
@@ -215,25 +351,11 @@
               "RelativeToolTip": "SignalRWebUI\\Views\\CustomerTab\\Index.cshtml",
               "ViewState": "AgIAAKQAAAAAAAAAAAAkwLwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T21:35:48.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:35:48.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BasketController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BasketController.cs",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\BasketController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BasketController.cs",
-              "RelativeToolTip": "SignalRWebUI\\Controllers\\BasketController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAqwG0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:06:55.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "DataAccessLayer.csproj",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\DataAccessLayer\\DataAccessLayer.csproj",
               "RelativeDocumentMoniker": "DataAccessLayer\\DataAccessLayer.csproj",
@@ -241,12 +363,11 @@
               "RelativeToolTip": "DataAccessLayer\\DataAccessLayer.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-05T19:55:36.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T19:55:36.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "CustomerTabController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\CustomerTabController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\CustomerTabController.cs",
@@ -254,12 +375,11 @@
               "RelativeToolTip": "SignalRWebUI\\Controllers\\CustomerTabController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T21:35:45.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:35:45.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "QrCodeController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\QrCodeController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\QrCodeController.cs",
@@ -267,12 +387,11 @@
               "RelativeToolTip": "SignalRWebUI\\Controllers\\QrCodeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:04:20.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T20:04:20.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "_ScriptPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\WebUIPartialView\\_ScriptPartial.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\WebUIPartialView\\_ScriptPartial.cshtml",
@@ -280,12 +399,11 @@
               "RelativeToolTip": "SignalRWebUI\\Views\\WebUIPartialView\\_ScriptPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T21:43:57.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:43:57.208Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "_WebUILayout.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Shared\\_WebUILayout.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Shared\\_WebUILayout.cshtml",
@@ -293,12 +411,11 @@
               "RelativeToolTip": "SignalRWebUI\\Views\\Shared\\_WebUILayout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T21:45:51.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:45:51.368Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Shared\\Components\\_HomePageProductsFiltreListComponent\\Default.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Shared\\Components\\_HomePageProductsFiltreListComponent\\Default.cshtml",
@@ -310,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Shared\\Components\\_HomePageNavbarComponent\\Default.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Shared\\Components\\_HomePageNavbarComponent\\Default.cshtml",
@@ -322,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "_HeaderPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\WebUIPartialView\\_HeaderPartial.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\WebUIPartialView\\_HeaderPartial.cshtml",
@@ -330,12 +447,11 @@
               "RelativeToolTip": "SignalRWebUI\\Views\\WebUIPartialView\\_HeaderPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T21:45:46.669Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T21:45:46.669Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Menu\\Index.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Menu\\Index.cshtml",
@@ -347,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "UpdateMenuTable.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Dtos\\MenuTable\\UpdateMenuTable.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Dtos\\MenuTable\\UpdateMenuTable.cs",
@@ -359,31 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "SignalRWebUI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAqwG0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:25:56.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BasketList.cshtml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
-              "RelativeToolTip": "SignalRWebUI\\Views\\Basket\\BasketList.cshtml",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAwHkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T20:06:59.217Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Shared\\Components\\_AdminNavbarPageComponents\\Default.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Shared\\Components\\_AdminNavbarPageComponents\\Default.cshtml",
@@ -395,31 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TestimonialController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\TestimonialController.cs",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\TestimonialController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\TestimonialController.cs",
-              "RelativeToolTip": "SignalRWebUI\\Controllers\\TestimonialController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA1wDgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:06:47.045Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Staticsbar\\Index.cshtml",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Views\\Staticsbar\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\Staticsbar\\Index.cshtml",
-              "RelativeToolTip": "SignalRWebUI\\Views\\Staticsbar\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T20:06:39.366Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "MenuController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\MenuController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\MenuController.cs",
@@ -431,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "BasketsList.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Dtos\\Basket\\BasketsList.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Dtos\\Basket\\BasketsList.cs",
@@ -443,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "MenuTableController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\MenuTableController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\MenuTableController.cs",
@@ -455,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "SignalRController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\SignalRController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\SignalRController.cs",
@@ -467,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "SocialMediaController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\SocialMediaController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\SocialMediaController.cs",
@@ -479,31 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "StaticsController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\StaticsController.cs",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\StaticsController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\StaticsController.cs",
-              "RelativeToolTip": "SignalRWebUI\\Controllers\\StaticsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:05:05.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "StaticsbarController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\StaticsbarController.cs",
-              "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\StaticsbarController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\StaticsbarController.cs",
-              "RelativeToolTip": "SignalRWebUI\\Controllers\\StaticsbarController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T20:05:04.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "ClientsController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\ClientsController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\ClientsController.cs",
@@ -515,7 +559,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\CategoryController.cs",
@@ -527,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Views\\BookWeb\\Index.cshtml",
               "RelativeDocumentMoniker": "SignalRWebUI\\Views\\BookWeb\\Index.cshtml",
@@ -539,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "BookWebController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BookWebController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\BookWebController.cs",
@@ -551,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "BookingController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\BookingController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\BookingController.cs",
@@ -563,7 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "DiscountController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\Controllers\\DiscountController.cs",
               "RelativeDocumentMoniker": "SignalRWebUI\\Controllers\\DiscountController.cs",
@@ -575,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "SignalRApiProject\\Controllers\\OrderController.cs",
@@ -587,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "BusinessLayer.csproj",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\BusinessLayer\\BusinessLayer.csproj",
               "RelativeDocumentMoniker": "BusinessLayer\\BusinessLayer.csproj",
@@ -595,12 +639,11 @@
               "RelativeToolTip": "BusinessLayer\\BusinessLayer.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-05T19:56:01.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T19:56:01.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "SignalRWebUI.csproj",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRWebUI\\SignalRWebUI.csproj",
               "RelativeDocumentMoniker": "SignalRWebUI\\SignalRWebUI.csproj",
@@ -608,12 +651,11 @@
               "RelativeToolTip": "SignalRWebUI\\SignalRWebUI.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-05T19:55:55.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T19:55:55.573Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -625,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "SignalRApiProject.csproj",
               "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\SignalRProjects\\SignalRApiProject\\SignalRApiProject.csproj",
               "RelativeDocumentMoniker": "SignalRApiProject\\SignalRApiProject.csproj",
@@ -633,8 +675,7 @@
               "RelativeToolTip": "SignalRApiProject\\SignalRApiProject.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-05T19:49:59.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T19:49:59.422Z"
             }
           ]
         }

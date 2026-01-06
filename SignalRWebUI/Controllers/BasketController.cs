@@ -57,7 +57,7 @@ namespace SignalRWebUI.Controllers
                     TotalPrice = file.Price * quantity
 
                 };
-                
+
                 HttpContext.Session.SetInt32("menutable", menutable);
 
                 ViewBag.MenuTable = menutable;
@@ -114,9 +114,15 @@ namespace SignalRWebUI.Controllers
 
                 if (responsemessage2.IsSuccessStatusCode)
                 {
-                    TempData["Success"] = "Başarılı";
-                    return RedirectToAction("Index", "CustomerTab");
+                    var responsemessage3 = await clients.DeleteAsync($"https://localhost:7042/api/Basket/DeleteBasketMenuTable{menutableid}");
 
+                    if (responsemessage3.IsSuccessStatusCode)
+                    {
+                        TempData["Success"] = "Başarılı";
+                        return RedirectToAction("Index", "CustomerTab");
+
+                    }
+                    return View();
                 }
 
                 return View();

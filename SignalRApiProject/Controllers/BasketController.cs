@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalRApiProject.Dto.Basket;
 
@@ -12,13 +11,15 @@ namespace SignalRApiProject.Controllers
     public class BasketController : ControllerBase
     {
         public IBasketServices _basketServices;
+        public IMenuTablesServices _menuTables;
         private readonly IMapper _mapper;
 
 
-        public BasketController(IBasketServices basketServices,IMapper mapper)
+        public BasketController(IBasketServices basketServices, IMapper mapper, IMenuTablesServices menuTables)
         {
             _basketServices = basketServices;
             _mapper = mapper;
+            _menuTables = menuTables;
         }
         [HttpGet("{id}")]
         public IActionResult GetMenuTableBasket(int id)
@@ -47,6 +48,19 @@ namespace SignalRApiProject.Controllers
             _basketServices.Delete(entity);
 
             return Ok("Başarılı Bir Şekilde Silindi");
+        }
+
+        [HttpDelete("DeleteBasketMenuTable{id:int}")]
+        public IActionResult DeleteBasketMenuTable(int id)
+        {
+            var entity = _menuTables.GetById(id);
+
+            var basketdelete = _basketServices.GetList().Where(n=>n.MenuTableID==entity.MenuTableID).ToList();
+
+            _basketServices.DeleteBasketList(basketdelete);
+
+            return Ok("Başarılı Bir Şekilde Silindi");
+
         }
     }
 }

@@ -22,6 +22,13 @@ namespace DataAccessLayer.EntityFramework
             this.c = c;
         }
 
+        public void DeleteBasketList(List<Basket> baskets)
+        {
+            c.Baskets.RemoveRange(baskets);
+
+            c.SaveChanges();
+        }
+
         public List<Basket> GetMenuTableBasket(int id)
         {
             var list = c.Baskets.Include(N=>N.Products).Where(N => N.MenuTable.MenuTableID == id).ToList();

@@ -27,6 +27,11 @@ namespace BusinessLayer.Concrete
             _basket.Delete(t);
         }
 
+        public void DeleteBasketList(List<Basket> baskets)
+        {
+            _basket.DeleteBasketList(baskets);
+        }
+
         public Basket GetById(int id)
         {
             return _basket.GetById(id);
